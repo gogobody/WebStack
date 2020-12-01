@@ -17,7 +17,7 @@ function themeConfig($form) {
    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <hr>
-   <p class="active-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-project"></use></svg> typecho 导航主题webstack 钻芒博客二开美化版</strong> <span></span></p>
+   <p class="active-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-project"></use></svg> typecho 导航主题webstack <a href="https://github.com/gogobody/WebStack">gogobody改版</a></strong> <span></span></p>
    <p class="previous-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-chicken"></use></svg> 主题版本号: </strong>0.7.19 <span></span></p>
 <hr>
 <ul id="myTab" class="nav nav-tabs">
@@ -121,7 +121,7 @@ function themeConfig($form) {
  <div class="zmki_ht_about">
  <div class="zmki_ht_about_img"><a href="https://jq.qq.com/?_wv=1027&k=z8DfLjVj" target="_blank"><img src="https://a-oss.zmki.cn/2020/20200214-a874495080831.png" width="80%" "/></a>
  <div class="zmki_ht_about_mian">
- <p style="font-size:15px;margin-top: 6px !important;"><b> typecho 导航主题webstack 钻芒博客二开美化版</b></p> 
+ <p style="font-size:15px;margin-top: 6px !important;"><b> typecho 导航主题webstack <a href="https://github.com/gogobody/WebStack">gogobody改版</a></b></p> 
  <p>主题发布地址:<a href="https://www.zmki.cn/5366.html"target="_blank">www.zmki.cn/5366.html</a></p>
  <p>ZMKI交流群:<a href="https://jq.qq.com/?_wv=1027&k=z8DfLjVj" target="_blank">737656800</a></p>
  <p>GitHub:<a href="https://github.com/wclk/WebStack_ZMKI"target="_blank">WebStack_zmki二开项目地址</a></p> 
