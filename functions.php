@@ -126,7 +126,7 @@ function themeConfig($form) {
  <p>ZMKI交流群:<a href="https://jq.qq.com/?_wv=1027&k=z8DfLjVj" target="_blank">737656800</a></p>
  <p>GitHub:<a href="https://github.com/wclk/WebStack_ZMKI"target="_blank">WebStack_zmki二开项目地址</a></p> 
  <p>GitHub:<a href="https://github.com/WebStackPage/WebStackPage.github.io"target="_blank">WebStack静态项目地址</a></p>
- <p>本主题由<a href="https://www.zmki.cn"target="_blank">钻芒博客</a>免费发布，禁止倒卖<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-chicken"></use></svg></p>
+ <p>本主题由<a href="https://bbs.geekscholar.net" target="_blank">gogobody</a>免费发布，禁止倒卖<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-chicken"></use></svg></p>
  </div>
  </div>
  </div>
@@ -248,11 +248,11 @@ EOT;
     $form->addInput($zmki_top_main_four_icon);
     $zmki_top_main_four_url = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_four_url', NULL, 'https://www.zmki.cn/', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>跳转链接'), _t('输入绿色模块跳转的链接,'));
     $form->addInput($zmki_top_main_four_url);
-    // 顶栏 钻芒博客 文字自定义
-    $zmki_name = new Typecho_Widget_Helper_Form_Element_Text('zmki_name', NULL, '钻芒博客', _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-prompt"></use></svg>  顶栏AD文字'), _t('输入你的首页顶栏收录提交右侧自定义文字，默认 钻芒博客'));
+    // 顶栏 文字自定义
+    $zmki_name = new Typecho_Widget_Helper_Form_Element_Text('zmki_name', NULL, '即刻学术', _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-prompt"></use></svg>  顶栏AD文字'), _t('输入你的首页顶栏收录提交右侧自定义文字，默认 即刻学术'));
     $form->addInput($zmki_name);
-    // 顶栏 钻芒博客 链接自定义
-    $zmki_url = new Typecho_Widget_Helper_Form_Element_Text('zmki_url', NULL, 'https://www.zmki.cn/', _t('顶栏AD链接'), _t('输入你的首页顶栏收录提交右侧文字调整的url，默认 https://www.zmki.cn/'));
+    // 顶栏 链接自定义
+    $zmki_url = new Typecho_Widget_Helper_Form_Element_Text('zmki_url', NULL, 'https://bbs.geekscholar.net/', _t('顶栏AD链接'), _t('输入你的首页顶栏收录提交右侧文字调整的url，默认 https://bbs.geekscholar.net/'));
     $form->addInput($zmki_url);
     $zmki_links = new Typecho_Widget_Helper_Form_Element_Text('zmki_links', NULL, '/links.html', _t('收录提交URL链接'), _t('默认访问/links.html  请前往管理-独立页面设置页面并填入内容，开启评论用做收录提交页，并返回此处填写链接'));
     $form->addInput($zmki_links);
@@ -278,10 +278,10 @@ EOT;
     $fk_zmki_email = new Typecho_Widget_Helper_Form_Element_Text('fk_zmki_email', NULL, 'a@zmki.cn', _t('悬浮窗在线邮件'), _t('输入右下角悬浮窗内的qq，默认 a@zmki.cn ，此功能需开启悬浮窗才会显示'));
     $form->addInput($fk_zmki_email);
     // 悬浮窗链接名称
-    $fk_zmki_name = new Typecho_Widget_Helper_Form_Element_Text('fk_zmki_name', NULL, '钻芒博客', _t('悬浮窗AD 更多 名称'), _t('输入右下角悬浮窗内的更多 后的自定义文字，默认 钻芒博客 ，此功能需开启悬浮窗才会显示'));
+    $fk_zmki_name = new Typecho_Widget_Helper_Form_Element_Text('fk_zmki_name', NULL, '即刻学术', _t('悬浮窗AD 更多 名称'), _t('输入右下角悬浮窗内的更多 后的自定义文字，默认 即刻学术 ，此功能需开启悬浮窗才会显示'));
     $form->addInput($fk_zmki_name);
     // 悬浮窗链接
-    $fk_zmki_url = new Typecho_Widget_Helper_Form_Element_Text('fk_zmki_url', NULL, 'https:www.zmki.cn/', _t('悬浮窗AD 更多 名称 超链接'), _t('输入右下角悬浮窗内AD的url，默认 https:www.zmki.cn/，此功能需开启悬浮窗才会显示'));
+    $fk_zmki_url = new Typecho_Widget_Helper_Form_Element_Text('fk_zmki_url', NULL, 'https://bbs.geekscholar.net/', _t('悬浮窗AD 更多 名称 超链接'), _t('输入右下角悬浮窗内AD的url，默认 https://bbs.geekscholar.net/，此功能需开启悬浮窗才会显示'));
     $form->addInput($fk_zmki_url);
     // IPC备案号
     $zmki_icp = new Typecho_Widget_Helper_Form_Element_Text('zmki_icp', NULL, '豫ICP备12222222号', _t('ICP备案号'), _t('如果在国内已进行备案，可在此处填写icp备案号;如:豫ICP备12222222号。备案号超链接将会被跳转至工信部网站 '));
@@ -299,7 +299,7 @@ EOT;
     $zmki_r = new Typecho_Widget_Helper_Form_Element_Text('zmki_r', NULL, 'ZMKi', _t('网站底部版权'), _t('V0.4.3已新增自定义底部版权，请保留前方作者链接。谢谢！默认 ZMKI'));
     $form->addInput($zmki_r);
     // 友情链接
-    $zmki_footer_links = new Typecho_Widget_Helper_Form_Element_Radio('zmki_footer_links', array('1' => _t('禁用'), '0' => _t('启用')), '1', _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-user-girl"></use></svg>  底部友情链接 <svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-user-boy"></use></svg>'), _t('是否开启底部友情链接, 如开启必须安装插件 否则首页报错。不使用关闭即可 插件下载:<a href="https://cdn.zmki.cn/typecho/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5%E6%8F%92%E4%BB%B6.zip">点击下载配套插件</a>'));
+    $zmki_footer_links = new Typecho_Widget_Helper_Form_Element_Radio('zmki_footer_links', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-user-girl"></use></svg>  底部友情链接 <svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-user-boy"></use></svg>'), _t('是否开启底部友情链接, 如开启必须安装插件 否则首页报错。不使用关闭即可 插件下载:<a href="https://cdn.zmki.cn/typecho/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5%E6%8F%92%E4%BB%B6.zip">点击下载配套插件</a>'));
     $form->addInput($zmki_footer_links);
 }
 //输出导航

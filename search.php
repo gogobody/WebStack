@@ -18,8 +18,5 @@
       <ul class="search-engine-list search-engine-list_zmki_ul"> 
       </ul>
     </div>
-    <!--<div class="bt-link"><a href="https://www.k1v.cn/6528.html" target="_blank">福利：【WPS全家桶】WPS政府企业版_合集多版本 无广告带VBA组件。免费下载！</a></div>-->
    </div>
 </section> 
-<script src="<?php $this->options->themeUrl('js/js/index.min.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('js/js/zui.js'); ?>"></script>
