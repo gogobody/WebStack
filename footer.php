@@ -11,14 +11,14 @@
 
         <!--友情链接-->
         <?php if ($this->options->zmki_footer_links == 1): ?>
-            <div class="links_zmki zmki_footer_mar">
+            <div class="links_zmki one_footer_mar">
                 <span>友情链接:</span>
                 <?php WebStack_Plugin::output(); ?>
             </div>
             <br>
         <?php endif; ?>
 
-        <div class="zmki_footer_mar">
+        <div class="one_footer_mar">
             <!--底部修改开始-->
             &copy; <?php echo date('Y'); ?>&nbsp;Theme:
             <a href="https://bbs.geekscholar.net/" target="_blank"><strong> Gogobody</strong></a>&nbsp; Design BY <a
@@ -30,7 +30,7 @@
         </div>
 
         <!--站点运行时间开始-->
-        <div class="zmki_footer_mar">
+        <div class="one_footer_mar">
             <script>
                 (function () {
                     var bp = document.createElement('script');
@@ -46,7 +46,7 @@
                 <?php if($this->options->zmki_time_no == '1'): ?>
             </script>
             站点已稳定运行：<SPAN id=span_dt_dt style="color: #2F889A;"></SPAN>
-            <script language='javascript'>function show_date_time() {
+            <script>function show_date_time() {
                     window.setTimeout("show_date_time()", 1000);
                     BirthDay = new Date("<?php $this->options->zmki_time(); ?> ");
                     today = new Date();
@@ -91,13 +91,13 @@
         });
     </script>
 <?php endif; ?>
-<script src="<?php $this->options->themeUrl('js/bootstrap.min.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('js/TweenMax.min.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('js/resizeable.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('js/joinable.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('js/xenon-api.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('js/xenon-toggles.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('js/xenon-custom.js'); ?>"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<!--<script src="--><?php //$this->options->themeUrl('js/TweenMax.min.js'); ?><!--"></script>-->
+<!--<script src="--><?php //$this->options->themeUrl('js/resizeable.js'); ?><!--"></script>-->
+<!--<script src="--><?php //$this->options->themeUrl('js/joinable.js'); ?><!--"></script>-->
+<!--<script src="--><?php //$this->options->themeUrl('js/xenon-api.js'); ?><!--"></script>-->
+<!--<script src="--><?php //$this->options->themeUrl('js/xenon-toggles.js'); ?><!--"></script>-->
+<!--<script src="--><?php //$this->options->themeUrl('js/xenon-custom.js'); ?><!--"></script>-->
 
 <script src="<?php $this->options->themeUrl('js/webstack.min.js'); ?>"></script>
 

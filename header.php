@@ -11,13 +11,17 @@
         ), '', ' - '); ?><?php $this->options->title(); ?><?php if ($this->is('index')): ?><?php endif; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="copyright" content="webstack_gogobody_1.0_bbs.geekscholar.net">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/fonts/linecons/css/linecons.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/font-awesome.min.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/bootstrap.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/xenon-core.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/xenon-components.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/xenon-skins.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/nav.css'); ?>">
+<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/fonts/linecons/css/linecons.css'); ?><!--">-->
+<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/font-awesome.min.css'); ?><!--">-->
+<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/bootstrap.css'); ?><!--">-->
+<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/xenon-core.css'); ?><!--">-->
+<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/xenon-components.css'); ?><!--">-->
+<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/xenon-skins.css'); ?><!--">-->
+<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/nav.css'); ?><!--">-->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/webstack.css'); ?>">
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -25,12 +29,7 @@
     <!--仿凡科 右侧悬浮窗-->
     <style>
         .fk_service_qrimg_site {
-            width: 119px;
-            height: 119px;
-            float: left;
-            margin: 12px 12px 5px 12px;
             background-image: url(<?php $this->options->fk_zmki_gzhimg(); ?>);
-            background-size: 100% 100%;
         }
         <?php /*单栏*/if($this->options->zmki_pcsl == '0'): ?>
         .col-sm-3 {

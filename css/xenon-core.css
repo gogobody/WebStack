@@ -272,7 +272,7 @@ body.night .search-engine {
 body.night .search-engine-list li { 
     background: #424242;
 } 
-body.night .zmki_footer_mar a{
+body.night .one_footer_mar a{
     color: darkgrey;
 }
 body.night .EKHJj {
@@ -3453,7 +3453,7 @@ footer.main-footer:after {
 	margin-left: auto;
 	margin-right: auto
 }
-.zmki_footer_mar{
+.one_footer_mar{
     margin: 15px 0px;
 }
 
@@ -3545,7 +3545,6 @@ body.chat-open .user-info-navbar a[data-toggle=chat] {
 	position: relative;
 	margin: 0;
 	padding: 0;
-	border: 1px solid #fff;
 	border-top: 0;
 	border-bottom: 0;
 	display: block;
@@ -3574,8 +3573,6 @@ body.chat-open .user-info-navbar a[data-toggle=chat] {
 	display: block;
 	padding: 30px 20px;
 	color: #979898;
-	border-bottom: 1px solid #fff;
-	top: 1px;
 	z-index: 5;
 	text-decoration: none
 }

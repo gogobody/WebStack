@@ -12,12 +12,12 @@
                 </a>
             </div>
             <div class="mobile-menu-toggle visible-xs">
-                <a href="#" data-toggle="mobile-menu">
+                <a data-toggle="collapse" href="#main-menu" data-target="#main-menu" aria-expanded="false">
                     <i class="fa-bars"></i>
                 </a>
             </div>
         </header>
-        <ul id="main-menu" class="main-menu">
+        <ul id="main-menu" class="main-menu collapse">
             <?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?>
             <?php while ($categorys->next()): ?>
                 <?php if ($categorys->levels === 0): ?>
@@ -51,7 +51,7 @@
             <?php endwhile; ?>
             <li class="submit-tag">
                 <a href="<?php $this->options->Isabout(); ?>">
-                    <i class="linecons-heart"></i>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
                     <span class="smooth">关于本站</span>
                     <span class="label label-Primary pull-right hidden-collapsed">♥</span>
                 </a>
