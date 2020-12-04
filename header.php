@@ -34,27 +34,27 @@
         .col-sm-3 {
             width: 50%;
         }
-        <?php /*三栏*/elseif($this->options->zmki_pcsl == '2'): ?>
+        <?php /*三栏*/elseif($this->options->zmki_pcsl == 2): ?>
         .col-sm-3 {
             width: 33%;
         }
-        <?php /*四栏*/elseif($this->options->zmki_pcsl == '3'): ?>
+        <?php /*四栏*/elseif($this->options->zmki_pcsl == 3): ?>
         .col-sm-3 {
             width: 25%;
         }
-        <?php /*五栏*/elseif($this->options->zmki_pcsl == '4'): ?>
+        <?php /*五栏*/elseif($this->options->zmki_pcsl == 4): ?>
         .col-sm-3 {
             width: 20%;
         }
-        <?php /*六栏*/elseif($this->options->zmki_pcsl == '5'): ?>
+        <?php /*六栏*/elseif($this->options->zmki_pcsl == 5): ?>
         .col-sm-3 {
             width: 16.6%;
         }
-        <?php /*七栏*/elseif($this->options->zmki_pcsl == '6'): ?>
+        <?php /*七栏*/elseif($this->options->zmki_pcsl == 6): ?>
         .col-sm-3 {
             width: 14.2%;
         }
-        <?php /*八栏*/elseif($this->options->zmki_pcsl == '7'): ?>
+        <?php /*八栏*/elseif($this->options->zmki_pcsl == 7): ?>
         .col-sm-3 {
             width: 12.5%;
         }
@@ -74,7 +74,7 @@
                 background: #fff;
                 margin-bottom: 0px;
             }
-        <?php elseif($this->options->zmki_wapsl == '2'): ?>
+        <?php elseif($this->options->zmki_wapsl == 2): ?>
             .col-sm-3 {
                 width: 33%;
                 float: left;

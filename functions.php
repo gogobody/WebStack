@@ -9,7 +9,7 @@ function themeConfig($form) {
     $check_host = 'http://tool.sq.zmki.cn/update.php';
     $check_message = $check_host . '?a=check_message&u=' . $_SERVER['HTTP_HOST'];
     $message = file_get_contents($check_message);
-    $v_time = '0.7.19';
+    $v_time = '1.0.0 ';
     if (!$_POST) {
         echo ' 
    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@ function themeConfig($form) {
 
 <hr>
    <p class="active-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-project"></use></svg> typecho 导航主题webstack <a href="https://github.com/gogobody/WebStack">gogobody改版</a></strong> <span></span></p>
-   <p class="previous-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-chicken"></use></svg> 主题版本号: </strong>0.7.19 <span></span></p>
+   <p class="previous-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-chicken"></use></svg> 主题版本号: </strong>1.0.0  <span></span></p>
 <hr>
 <ul id="myTab" class="nav nav-tabs">
    <li class="active"><a href="#home" data-toggle="tab">版本与特性</a></li>
@@ -185,7 +185,7 @@ p{
 EOT;
     echo '<hr>
 <svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-sound"></use></svg>
-<span>  V0.7.19 已去除主题设置里画蛇添足的 自定义站点名称和后缀功能，如设置直接移步至</span>';
+<span>  V1.0.0 已去除主题设置里画蛇添足的 自定义站点名称和后缀功能，如设置直接移步至</span>';
 ?>   
 <a href="<?php Helper::options()->adminUrl('options-general.php'); ?>">设置 </a>即可
 <img src="<?php ?> ">
@@ -203,10 +203,10 @@ EOT;
     $usecdn = new Typecho_Widget_Helper_Form_Element_Radio('usecdn', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('使用CDN'), _t("是否开启CDN，js和css 会直接从cdn加载"));
     $form->addInput($usecdn);
     // 手机端每行显示数量
-    $zmki_wapsl = new Typecho_Widget_Helper_Form_Element_Radio('zmki_wapsl', array(0 => _t('单栏'), 1 => _t('双栏'), '2' => _t('三栏')), 0, _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-phone"></use></svg> 手机端栏目数量'), _t("选择相应的栏目数量,手机端每行将显示不同数量的布局。此功能可避免页面过于庸长，默认单栏，推荐双栏显示 <br>注意：如调整失效，请刷新请浏览器缓存"));
+    $zmki_wapsl = new Typecho_Widget_Helper_Form_Element_Radio('zmki_wapsl', array(0 => _t('单栏'), 1 => _t('双栏'), 2 => _t('三栏')), 0, _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-phone"></use></svg> 手机端栏目数量'), _t("选择相应的栏目数量,手机端每行将显示不同数量的布局。此功能可避免页面过于庸长，默认单栏，推荐双栏显示 <br>注意：如调整失效，请刷新请浏览器缓存"));
     $form->addInput($zmki_wapsl);
     // PC端每行显示数量
-    $zmki_pcsl = new Typecho_Widget_Helper_Form_Element_Radio('zmki_pcsl', array(0 => _t('单栏'), 1 => _t('双栏'), '2' => _t('三栏'), '3' => _t('四栏'), '4' => _t('五栏'), '5' => _t('六栏'), '6' => _t('七栏'), '7' => _t('八栏')), '3', _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-pc"></use></svg> PC端栏目数量'), _t("选择相应的栏目数量,PC每行将显示不同数量的布局。默认4栏，为美观考虑推荐设置4-6栏<br>注意：如调整失效，请刷新请浏览器缓存"));
+    $zmki_pcsl = new Typecho_Widget_Helper_Form_Element_Radio('zmki_pcsl', array(0 => _t('单栏'), 1 => _t('双栏'), 2 => _t('三栏'), 3 => _t('四栏'), 4 => _t('五栏'), 5 => _t('六栏'), 6 => _t('七栏'), 7 => _t('八栏')), 3, _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-pc"></use></svg> PC端栏目数量'), _t("选择相应的栏目数量,PC每行将显示不同数量的布局。默认4栏，为美观考虑推荐设置4-6栏<br>注意：如调整失效，请刷新请浏览器缓存"));
     $form->addInput($zmki_pcsl);
     // 暗黑开关
     $zmki_ah = new Typecho_Widget_Helper_Form_Element_Radio('zmki_ah', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('暗黑模式开关'), _t("是否开启前台暗黑模式开关，开启后网站会在晚22点-早6点夜间自动开启黑暗模式; 请放心，此功能会保存cooke方便使用"));
