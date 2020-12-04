@@ -43,24 +43,25 @@
                     var s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(bp, s);
                 })();
-                <?php if($this->options->zmki_time_no == '1'): ?>
+                <?php if($this->options->zmki_time_no == 1): ?>
             </script>
             站点已稳定运行：<SPAN id=span_dt_dt style="color: #2F889A;"></SPAN>
-            <script>function show_date_time() {
+            <script>
+                function show_date_time() {
                     window.setTimeout("show_date_time()", 1000);
-                    BirthDay = new Date("<?php $this->options->zmki_time(); ?> ");
-                    today = new Date();
-                    timeold = (today.getTime() - BirthDay.getTime());
-                    sectimeold = timeold / 1000
-                    secondsold = Math.floor(sectimeold);
-                    msPerDay = 24 * 60 * 60 * 1000
-                    e_daysold = timeold / msPerDay
-                    daysold = Math.floor(e_daysold);
-                    e_hrsold = (e_daysold - daysold) * 24;
-                    hrsold = Math.floor(e_hrsold);
-                    e_minsold = (e_hrsold - hrsold) * 60;
-                    minsold = Math.floor((e_hrsold - hrsold) * 60);
-                    seconds = Math.floor((e_minsold - minsold) * 60);
+                    var BirthDay = new Date("<?php $this->options->zmki_time(); ?> ");
+                    var today = new Date();
+                    var timeold = (today.getTime() - BirthDay.getTime());
+                    var sectimeold = timeold / 1000
+                    var secondsold = Math.floor(sectimeold);
+                    var msPerDay = 24 * 60 * 60 * 1000
+                    var e_daysold = timeold / msPerDay
+                    var daysold = Math.floor(e_daysold);
+                    var e_hrsold = (e_daysold - daysold) * 24;
+                    var hrsold = Math.floor(e_hrsold);
+                    var e_minsold = (e_hrsold - hrsold) * 60;
+                    var minsold = Math.floor((e_hrsold - hrsold) * 60);
+                    var seconds = Math.floor((e_minsold - minsold) * 60);
                     span_dt_dt.innerHTML = '<font style=color:#C40000>' + daysold + '</font> 天 <font style=color:#C40000>' + hrsold + '</font> 时 <font style=color:#C40000>' + minsold + '</font> 分 <font style=color:#C40000>' + seconds + '</font> 秒';
                 }
 
@@ -72,62 +73,18 @@
 </footer>
 </div>
 </div>
-<script crossorigin="anonymous" integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB" src="//lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
-<?php if ($this->is('index')): ?>
-    <script type="text/javascript">
-        var href = "";
-        var pos = 0;
-        $("a.smooth").click(function (e) {
-            $("#main-menu li").each(function () {
-                $(this).removeClass("active");
-            });
-            $(this).parent("li").addClass("active");
-            e.preventDefault();
-            href = $(this).attr("href");
-            pos = $(href).position().top - 30;
-            $("html,body").animate({
-                scrollTop: pos
-            }, 500);
-        });
-    </script>
-<?php endif; ?>
-<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
-<!--<script src="--><?php //$this->options->themeUrl('js/TweenMax.min.js'); ?><!--"></script>-->
-<!--<script src="--><?php //$this->options->themeUrl('js/resizeable.js'); ?><!--"></script>-->
-<!--<script src="--><?php //$this->options->themeUrl('js/joinable.js'); ?><!--"></script>-->
-<!--<script src="--><?php //$this->options->themeUrl('js/xenon-api.js'); ?><!--"></script>-->
-<!--<script src="--><?php //$this->options->themeUrl('js/xenon-toggles.js'); ?><!--"></script>-->
-<!--<script src="--><?php //$this->options->themeUrl('js/xenon-custom.js'); ?><!--"></script>-->
+<?php $nowpage = null;
+if ($this->is('index')) $nowpage = 'index'; else $nowpage = 'page';
+echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";</script>' ?>
 
+<script crossorigin="anonymous" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" src="//lib.baomitu.com/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="<?php $this->options->themeUrl('js/webstack.min.js'); ?>"></script>
-
 <script type="text/javascript">
-    $(document).ready(function (){
-        $('.user-info-menu .hidden-sm').click(function(){
-            if($('.sidebar-menu').hasClass('collapsed')) {
-                $('.has-sub.expanded > ul').attr("style","")
-            } else {
-                $('.has-sub.expanded > ul').show()
-            }
-        })
-        WebStackInit()
-    })
-
-    <?php if($this->options->zmki_ah == '1'): ?>
-        webStack.nightModeInit()
-    <?php endif; ?>
+    WebStackInit();<?php if($this->options->zmki_ah == 1): ?>webStack.nightModeInit()<?php endif; ?>
 </script>
 <!--统计代码-->
 <?php $this->options->zmki_tongji(); ?>
-<script>
-    // var _hmt = _hmt || [];
-    // (function() {
-    //   var hm = document.createElement("script");
-    //   hm.src = "https://hm.baidu.com/hm.js?ce24fad4121e4d296c3f05d016ae4c64";
-    //   var s = document.getElementsByTagName("script")[0];
-    //   s.parentNode.insertBefore(hm, s);
-    // })();
-</script>
 
 </body>
 </html>

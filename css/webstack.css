@@ -62,7 +62,6 @@ img {
 
     .page-container .main-content {
         margin-top: -20px !important;
-        margin-bottom: 30px !important
     }
 
     .zmki_top_main {
@@ -151,7 +150,7 @@ body.night .footer-text a {
     color: #a9a9a9
 }
 
-body.night .footer-text a:hover, body.night footer-text a:focus {
+body.night .footer-text a:hover, body.night .footer-text a:focus {
     color: #fff;
     text-decoration: none
 }
@@ -221,14 +220,23 @@ body.night .search-engine-list li {
 body.night .one_footer_mar a {
     color: #a9a9a9
 }
-
-
+body.night .panel{
+    background: #2c2e2f!important;
+}
+body.night .panel a{
+    color: aliceblue!important;
+}
+body.night #textarea{
+    background: #2c2e2f!important;
+}
+body.night .comment-list li.comment-by-author{
+    background: #2c2e2f!important;
+}
 .fk_service {
     max-height: 232px;
     position: fixed;
     right: 10px;
     top: 40%;
-    font-family: "寰蒋闆呴粦";
     font-size: 14px;
     color: #243558;
     z-index: 10000
@@ -485,7 +493,6 @@ body.night .one_footer_mar a {
     position: absolute;
     text-align: center;
     border: 1px solid #e1e6ec;
-    background-color: #f6f8fb;
     display: none;
     opacity: 0
 }
@@ -602,7 +609,6 @@ body.night .one_footer_mar a {
     position: fixed;
     right: 10px;
     top: 65%;
-    font-family: "寰蒋闆呴粦";
     font-size: 14px;
     color: #243558;
     z-index: 10000
@@ -851,7 +857,7 @@ body, html {
 .sidebar-menu .main-menu li.has-sub > a:before {
     position: relative;
     display: inline-block;
-    font-family: FontAwesome;
+    font-family: 'FontAwesome', serif;
     content: '\f107';
     float: right;
     color: #6d747a;
@@ -891,7 +897,6 @@ body, html {
     .sidebar-menu .main-menu ul li.is-hidden {
         left: -20px;
         zoom: 1;
-        -webkit-opacity: 0;
         -moz-opacity: 0;
         opacity: 0
     }
@@ -1192,7 +1197,6 @@ footer.main-footer.fixed {
 .user-info-navbar .user-info-menu > li.hover-line:before {
     content: '';
     position: absolute;
-    display: block;
     height: 2px;
     top: 0;
     left: 0;
@@ -1282,7 +1286,8 @@ footer.main-footer.fixed {
     }
 
     .page-container .sidebar-menu {
-        position: relative
+        position: fixed;
+        margin: 20px 0 0 0;
     }
 
     .page-container .sidebar-menu .sidebar-menu-inner {
@@ -1324,6 +1329,10 @@ footer.main-footer.fixed {
         color: #fff
     }
 
+    .page-container .sidebar-menu .sidebar-menu-inner .main-menu {
+        display: none;
+        margin-bottom: 0;
+    }
 
     .page-container .sidebar-menu .sidebar-menu-inner .main-menu.mobile-is-visible {
         display: block
@@ -1338,18 +1347,31 @@ footer.main-footer.fixed {
     }
 
     .page-container .main-content .navbar.user-info-navbar.mobile-is-visible {
-        display: block
+        display: block;
+        top: 111px;
     }
-
+    .user-info-navbar .user-info-menu.left-links{
+        max-height: 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+        width: 100%;
+    }
     .page-container .main-content .navbar.user-info-navbar .user-info-menu > li {
-        min-height: 0 !important
+        min-height: 0 !important;
+        height: 100%;
+        display: flex;
     }
 
     .page-container .main-content .navbar.user-info-navbar .user-info-menu > li > a {
         padding-top: 20px;
         padding-bottom: 20px
     }
-
+    .user-info-navbar .user-info-menu > li > a{
+        padding: 30px 30px;
+    }
     .page-container .main-content .main-footer {
         position: relative;
         left: 0;
@@ -1416,7 +1438,7 @@ footer.main-footer.fixed {
 
 .btn.btn-gray:hover {
     background-color: #e1e1e1;
-    text-color: #333
+    color: #333
 }
 
 .btn.btn-gray:active, .btn.btn-gray:focus {
@@ -1432,7 +1454,7 @@ footer.main-footer.fixed {
 
 .btn.btn-white:hover {
     background-color: #f2f2f2;
-    text-color: #333
+    color: #333
 }
 
 .btn.btn-white:active, .btn.btn-white:focus {
@@ -1515,8 +1537,11 @@ nav.navbar {
     width: 100%;
     z-index: var(--nav-index);
     top: 30px;
+    box-shadow: rgba(0,0,0,.2) 0 1px 3px, rgba(157,182,200,.1) 0 1px 20px;
 }
-
+nav.navbar.night{
+    background-color: rgb(17 29 35);
+}
 nav.navbar .navbar-nav li a {
     padding-left: 20px;
     padding-right: 20px
@@ -2014,7 +2039,6 @@ a.text-white:hover {
     font-size: 13px;
     display: block;
     zoom: 1;
-    -webkit-opacity: .5;
     -moz-opacity: .5;
     opacity: .5
 }
@@ -2216,6 +2240,13 @@ a.text-white:hover {
 }
 
 @media screen and (min-width: 768px) {
+    .weather{
+        display: table!important;
+    }
+    .weather #tp-weather-widget{
+        display: table-cell;
+        vertical-align: middle
+    }
     .sidebar-menu.collapsed .sidebar-user-info + .main-menu {
         margin-top: 0
     }
@@ -2412,7 +2443,6 @@ a.text-white:hover {
     border: none;
     outline: 0;
     padding-left: 45px;
-    border: 1px solid #e6e6e6;
     border-radius: 10px
 }
 
@@ -2580,7 +2610,6 @@ input::-webkit-input-placeholder {
     background: #f9f9f9;
     color: #999;
     cursor: pointer;
-    padding: 0
 }
 
 .search-engine-list li span {
@@ -2647,7 +2676,6 @@ input::-webkit-input-placeholder {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical
 }
 
@@ -2655,7 +2683,6 @@ input::-webkit-input-placeholder {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical
 }
 
@@ -2669,4 +2696,39 @@ input::-webkit-input-placeholder {
     float: left;
     margin: 12px 12px 5px 12px;
     background-size: 100% 100%
+}
+.panel {
+    position: relative;
+    background: #fff;
+    padding: 20px 30px;
+    border: 0;
+    margin-bottom: 30px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.panel .panel-body {
+    padding-top: 20px;
+    color: #979898;
+}
+
+.text-gray {
+    color: #555;
+}
+.main-content .content{
+
+}
+.main-content .comments{
+    margin-top: 4em;
+}
+@media screen and (min-width: 768.1px) {
+    .hidden-less-ipad {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 449.8px) {
+    .user-info-navbar .user-info-menu > li > a {
+        padding: 30px 8px;
+    }
 }

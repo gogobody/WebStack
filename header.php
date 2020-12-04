@@ -11,18 +11,9 @@
         ), '', ' - '); ?><?php $this->options->title(); ?><?php if ($this->is('index')): ?><?php endif; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="copyright" content="webstack_gogobody_1.0_bbs.geekscholar.net">
-<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/fonts/linecons/css/linecons.css'); ?><!--">-->
-<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/font-awesome.min.css'); ?><!--">-->
-<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/bootstrap.css'); ?><!--">-->
-<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/xenon-core.css'); ?><!--">-->
-<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/xenon-components.css'); ?><!--">-->
-<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/xenon-skins.css'); ?><!--">-->
-<!--    <link rel="stylesheet" href="--><?php //$this->options->themeUrl('css/nav.css'); ?><!--">-->
-    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/webstack.css'); ?>">
-
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/webstack.min.css'); ?>">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/icon.png">
     <?php $this->header(); ?>
@@ -31,11 +22,11 @@
         .fk_service_qrimg_site {
             background-image: url(<?php $this->options->fk_zmki_gzhimg(); ?>);
         }
-        <?php /*单栏*/if($this->options->zmki_pcsl == '0'): ?>
+        <?php /*单栏*/if($this->options->zmki_pcsl == 0): ?>
         .col-sm-3 {
             width: 100%;
         }
-        <?php /*双栏*/elseif($this->options->zmki_pcsl == '1'): ?>
+        <?php /*双栏*/elseif($this->options->zmki_pcsl == 1): ?>
         .col-sm-3 {
             width: 50%;
         }
@@ -65,11 +56,11 @@
         }
         <?php endif; ?>
         @media (max-width: 768px) {
-        <?php /*手机端双栏显示 常规尺寸*/if($this->options->zmki_wapsl == '0'): ?>
+        <?php /*手机端双栏显示 常规尺寸*/if($this->options->zmki_wapsl == 0): ?>
             .col-sm-3 {
                 width: 100%;
             }
-        <?php elseif($this->options->zmki_wapsl == '1'): ?>
+        <?php elseif($this->options->zmki_wapsl == 1): ?>
             .col-sm-3 {
                 width: 50%;
                 float: left;
@@ -93,6 +84,6 @@
         }
     </style>
 </head>
-<body class="page-body <?php echo($_COOKIE['night'] == '1' ? 'night' : ''); ?>">
+<body class="page-body <?php echo($_COOKIE['night'] == 1 ? 'night' : ''); ?>">
 <!-- skin-white -->
 <div class="page-container">
