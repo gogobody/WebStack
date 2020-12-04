@@ -77,7 +77,7 @@
 if ($this->is('index')) $nowpage = 'index'; else $nowpage = 'page';
 echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";</script>' ?>
 <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/1.1.3/lazysizes.min.js" async=""></script>
-<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <?php if ($this->options->usecdn):?>
 <script src="https://cdn.jsdelivr.net/gh/gogobody/WebStack/js/webstack.min.js"></script>
