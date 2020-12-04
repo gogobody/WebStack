@@ -79,7 +79,11 @@ echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";</s
 
 <script crossorigin="anonymous" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" src="//lib.baomitu.com/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<?php if ($this->options->usecdn):?>
+<script src="https://cdn.jsdelivr.net/gh/gogobody/WebStack/js/webstack.min.js"></script>
+<?php else:?>
 <script src="<?php $this->options->themeUrl('js/webstack.min.js'); ?>"></script>
+<?php endif ?>
 <script type="text/javascript">
     WebStackInit();<?php if($this->options->zmki_ah == 1): ?>webStack.nightModeInit()<?php endif; ?>
 </script>

@@ -13,7 +13,11 @@
     <meta name="copyright" content="webstack_gogobody_1.0_bbs.geekscholar.net">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <?php if ($this->options->usecdn):?>
+    <link href="https://cdn.jsdelivr.net/gh/gogobody/WebStack/css/webstack.min.css" rel="stylesheet">
+    <?php else:?>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/webstack.min.css'); ?>">
+    <?php endif ?>
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/icon.png">
     <?php $this->header(); ?>

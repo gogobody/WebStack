@@ -200,6 +200,8 @@ EOT;
     $weatheropen = new Typecho_Widget_Helper_Form_Element_Radio('weather', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('心知天气开关'), _t("是否开启心知天气"));
     $form->addInput($weatheropen);
 
+    $usecdn = new Typecho_Widget_Helper_Form_Element_Radio('usecdn', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('使用CDN'), _t("是否开启CDN，js和css 会直接从cdn加载"));
+    $form->addInput($usecdn);
     // 手机端每行显示数量
     $zmki_wapsl = new Typecho_Widget_Helper_Form_Element_Radio('zmki_wapsl', array(0 => _t('单栏'), 1 => _t('双栏'), '2' => _t('三栏')), 0, _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-phone"></use></svg> 手机端栏目数量'), _t("选择相应的栏目数量,手机端每行将显示不同数量的布局。此功能可避免页面过于庸长，默认单栏，推荐双栏显示 <br>注意：如调整失效，请刷新请浏览器缓存"));
     $form->addInput($zmki_wapsl);
