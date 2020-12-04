@@ -61,7 +61,7 @@ $this->need('header.php');
                                  data-original-title="<?php echo $posts->fields->url; ?>">
                                 <div class="xe-comment-entry">
                                     <a class="xe-user-img">
-                                        <img src="<?php echo $posts->fields->logo; ?>" class="img-circle" width="32">
+                                        <img src="<?php $this->options->themeUrl('images/loading.gif')?>" data-src="<?php echo $posts->fields->logo; ?>" class="img-circle lazyload" width="32">
                                     </a>
                                     <div class="xe-comment">
                                         <a href="#" class="xe-user-name overflowClip_1">
