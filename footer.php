@@ -10,7 +10,7 @@
         </div>
 
         <!--友情链接-->
-        <?php if ($this->options->zmki_footer_links == 1): ?>
+        <?php if ($this->options->one_footer_links == 1): ?>
             <div class="links_zmki one_footer_mar">
                 <span>友情链接:</span>
                 <?php WebStack_Plugin::output(); ?>
@@ -24,9 +24,9 @@
             <a href="https://bbs.geekscholar.net/" target="_blank"><strong> Gogobody</strong></a>&nbsp; Design BY <a
                     href="http://webstack.cc" target="_blank"><strong>Webstack</strong></a>&nbsp; Modify BY <a
                     href="https://www.zmki.cn/5366.html" target="_blank"><strong>ZMKI</strong></a>
-            &nbsp;&nbsp;版权所有:<b><?php $this->options->zmki_r(); ?></b>
+            &nbsp;&nbsp;版权所有:<b><?php $this->options->one_r(); ?></b>
             &nbsp;&nbsp;&nbsp;<a href="http://beian.miit.gov.cn/"
-                                 target="_blank"><strong> <?php $this->options->zmki_icp(); ?> </strong></a>
+                                 target="_blank"><strong> <?php $this->options->one_icp(); ?> </strong></a>
         </div>
 
         <!--站点运行时间开始-->
@@ -43,13 +43,13 @@
                     var s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(bp, s);
                 })();
-                <?php if($this->options->zmki_time_no == 1): ?>
+                <?php if($this->options->one_time_no == 1): ?>
             </script>
             站点已稳定运行：<SPAN id=span_dt_dt style="color: #2F889A;"></SPAN>
             <script>
                 function show_date_time() {
                     window.setTimeout("show_date_time()", 1000);
-                    var BirthDay = new Date("<?php $this->options->zmki_time(); ?> ");
+                    var BirthDay = new Date("<?php $this->options->one_time(); ?> ");
                     var today = new Date();
                     var timeold = (today.getTime() - BirthDay.getTime());
                     var sectimeold = timeold / 1000
@@ -73,6 +73,7 @@
 </footer>
 </div>
 </div>
+</div>
 <?php $nowpage = null;
 if ($this->is('index')) $nowpage = 'index'; else $nowpage = 'page';
 echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";</script>' ?>
@@ -85,10 +86,10 @@ echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";</s
 <script src="<?php $this->options->themeUrl('js/webstack.min.js'); ?>"></script>
 <?php endif ?>
 <script type="text/javascript">
-    WebStackInit();<?php if($this->options->zmki_ah == 1): ?>webStack.nightModeInit()<?php endif; ?>
+    WebStackInit();<?php if($this->options->one_ah == 1): ?>webStack.nightModeInit()<?php endif; ?>
 </script>
 <!--统计代码-->
-<?php $this->options->zmki_tongji(); ?>
+<?php $this->options->one_tongji(); ?>
 
 </body>
 </html>

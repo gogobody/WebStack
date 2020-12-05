@@ -7,37 +7,38 @@
  * @version 1.0 gogobody 优化版
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+
 $this->need('header.php');
 ?>
 <?php $this->need('sidebar.php'); ?>
 
 <div class="main-content">
-    <?php $this->need('components/nav.php'); ?>
+    <div class="fixpad"></div>
     <!--顶部新增模块开始	-->
-    <?php if ($this->options->zmki_top_main == 1): ?>
-        <div class="wapnone zmki_top_main" style="display: flex;">
+    <?php if ($this->options->one_top_main == 1): ?>
+        <div class="wapnone one_top_main">
             <div class="col-lg-4 wapnone">
-                <a class="colorful-card zmki_top_one" target="_blank"
-                   href="<?php $this->options->zmki_top_main_one_url(); ?>">
-                    <i class="<?php $this->options->zmki_top_main_one_icon(); ?>"></i><?php $this->options->zmki_top_main_one_name(); ?>
+                <a class="colorful-card one_top_one" target="_blank"
+                   href="<?php $this->options->one_top_main_one_url(); ?>">
+                    <i class="<?php $this->options->one_top_main_one_icon(); ?>"></i><?php $this->options->one_top_main_one_name(); ?>
                 </a>
             </div>
             <div class="col-lg-4 wapnone">
-                <a class="colorful-card zmki_top_two" target="_blank"
-                   href="<?php $this->options->zmki_top_main_two_url(); ?>">
-                    <i class="<?php $this->options->zmki_top_main_two_icon(); ?>"></i><?php $this->options->zmki_top_main_two_name(); ?>
+                <a class="colorful-card one_top_two" target="_blank"
+                   href="<?php $this->options->one_top_main_two_url(); ?>">
+                    <i class="<?php $this->options->one_top_main_two_icon(); ?>"></i><?php $this->options->one_top_main_two_name(); ?>
                 </a>
             </div>
             <div class="col-lg-4 wapnone">
-                <a class="colorful-card zmki_top_three" target="_blank"
-                   href="<?php $this->options->zmki_top_main_three_url(); ?>">
-                    <i class="<?php $this->options->zmki_top_main_three_icon(); ?>"></i><?php $this->options->zmki_top_main_three_name(); ?>
+                <a class="colorful-card one_top_three" target="_blank"
+                   href="<?php $this->options->one_top_main_three_url(); ?>">
+                    <i class="<?php $this->options->one_top_main_three_icon(); ?>"></i><?php $this->options->one_top_main_three_name(); ?>
                 </a>
             </div>
             <div class="col-lg-4 wapnone">
-                <a class="colorful-card zmki_top_four" target="_blank"
-                   href="<?php $this->options->zmki_top_main_four_url(); ?>">
-                    <i class="<?php $this->options->zmki_top_main_four_icon(); ?>"></i><?php $this->options->zmki_top_main_four_name(); ?>
+                <a class="colorful-card one_top_four" target="_blank"
+                   href="<?php $this->options->one_top_main_four_url(); ?>">
+                    <i class="<?php $this->options->one_top_main_four_icon(); ?>"></i><?php $this->options->one_top_main_four_name(); ?>
                 </a>
             </div>
         </div>
@@ -98,7 +99,7 @@ $this->need('header.php');
     <?php if ($this->options->fk_zmki == 1): ?>
         <div class="wapnone fk_service">
             <ul>
-                <?php if ($this->options->zmki_ah == 1): ?>
+                <?php if ($this->options->one_ah == 1): ?>
                     <li class="fk_service_box fk_service_zmkiah"
                         onclick="window.location.href='javascript:switchNightMode()'">
                         <div class="fk_service_zmkiah_cont"><span class="fk_service_triangle"></span>全新暗黑模式，夜间使用保护眼睛</div>
@@ -114,23 +115,23 @@ $this->need('header.php');
                         <div class="fk_service_consult_cont_top"> <span class="fk_service_hint"> <span
                                         class="fk_service_icon"></span>
 						<span> 如遇问题，请联系站长 </span> </span> <span class="fk_service_button"
-                                                                onclick="window.open('https://wpa.qq.com/msgrd?v=3&uin=<?php $this->options->fk_zmki_qq(); ?>&site=qq&menu=yes')">QQ联系</span>
+                                                                onclick="window.open('https://wpa.qq.com/msgrd?v=3&uin=<?php $this->options->fk_one_qq(); ?>&site=qq&menu=yes')">QQ联系</span>
                             <span class="fk_service_button"
-                                  onclick="window.open('https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php $this->options->fk_zmki_email(); ?>')">在线邮件</span>
+                                  onclick="window.open('https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php $this->options->fk_one_email(); ?>')">在线邮件</span>
                         </div>
-                        <span class="fk_service_phone"><?php $this->options->fk_zmki_qq(); ?></span> <span
+                        <span class="fk_service_phone"><?php $this->options->fk_one_qq(); ?></span> <span
                                 class="fk_service_check_site"> <span class="fk_service_icon"></span>
-					<span onclick="window.open('<?php $this->options->fk_zmki_url(); ?>')">更多：<?php $this->options->fk_zmki_name(); ?></span> </span>
+					<span onclick="window.open('<?php $this->options->fk_one_url(); ?>')">更多：<?php $this->options->fk_one_name(); ?></span> </span>
                     </div>
                 </li>
                 <li class="fk_service_box fk_service_qr">
                     <div class="fk_service_qr_cont"><span class="fk_service_triangle"></span>
                         <div class="fk_service_qrimg"><span class="fk_service_qrimg_site"></span> 微信扫一扫关注</div>
-                        <div class="fk_service_qrtext"><span><?php $this->options->fk_zmki_gzhtext(); ?></span></div>
+                        <div class="fk_service_qrtext"><span><?php $this->options->fk_one_gzhtext(); ?></span></div>
                     </div>
                 </li>
                 <li class="fk_service_box fk_service_feedback"
-                    onclick="window.location.href='<?php $this->options->zmki_links(); ?>'">
+                    onclick="window.location.href='<?php $this->options->one_links(); ?>'">
                     <div class="fk_service_feedback_cont"><span class="fk_service_triangle"></span> 提交收录，站长收到留言后即刻处理！</div>
                 </li>
                 <li class="fk_service_box fk_service_upward " onclick="javascript:document.getElementById('01').click();"

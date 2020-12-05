@@ -351,48 +351,13 @@ public_vars.$mainContent = public_vars.$pageContainer.find('.main-content');
 public_vars.$userInfoMenu = public_vars.$body.find('nav.navbar.user-info-navbar');
 /**
  * main func
- * @type {{init: webStack.init, nightModeInit: webStack.nightModeInit, weatherWidgetInit: webStack.weatherWidgetInit}}
+ * @type {{init: webStack.init, nightModeInit: webStack.nightModeInit}}
  */
 var webStack = {
     init: function () {
-        this.weatherWidgetInit()
         this.siteEventInit()
+        this.resizeNavBar()
         this.toggleBarInit()
-    },
-    weatherWidgetInit: function () {
-        if (!$("#tp-weather-widget")) return;
-        (function (a, h, g, f, e, d, c, b) {
-            b = function () {
-                d = h.createElement(g);
-                c = h.getElementsByTagName(g)[0];
-                d.src = e;
-                d.charset = "utf-8";
-                d.async = 1;
-                c.parentNode.insertBefore(d, c)
-            };
-            a["SeniverseWeatherWidgetObject"] = f;
-            a[f] || (a[f] = function () {
-                (a[f].q = a[f].q || []).push(arguments)
-            });
-            a[f].l = +new Date();
-            if (a.attachEvent) {
-                a.attachEvent("onload", b)
-            } else {
-                a.addEventListener("load", b, false)
-            }
-        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
-
-        window.SeniverseWeatherWidget('show', {
-            flavor: "slim",
-            location: "WX4FBXXFKE4F",
-            geolocation: true,
-            language: "zh-Hans",
-            unit: "c",
-            theme: "auto",
-            token: "6cc2a314-5422-4e9c-b3ad-7b9217f4e494",
-            hover: "enabled",
-            container: "tp-weather-widget"
-        })
     },
     nightModeInit: function () {
         if (document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {
@@ -445,6 +410,9 @@ var webStack = {
             $(this).addClass('active'); // 添加当前元素的样式
         });
     },
+    resizeNavBar:function(){
+        document.querySelector("nav.navbar").style.left = document.querySelector("div.sidebar-menu.toggle-others.fixed").offsetWidth+"px"
+    },
     toggleBarInit: function () {
         // toggle
         $("a.smooth").click(function (ev) {
@@ -474,12 +442,10 @@ var webStack = {
 
         // Setup Horizontal Menu
         setup_horizontal_menu();
-
+        // sidebar click function
         $('a[data-toggle="sidebar"]').each(function (i, el) {
             $(el).on('click', function (ev) {
                 ev.preventDefault();
-
-
                 if (public_vars.$sidebarMenu.hasClass('collapsed')) {
                     public_vars.$sidebarMenu.removeClass('collapsed');
                     ps_init();
@@ -487,8 +453,7 @@ var webStack = {
                     public_vars.$sidebarMenu.addClass('collapsed');
                     ps_destroy();
                 }
-
-                $(window).trigger('xenon.resize');
+                webStack.resizeNavBar()
             });
         });
 
