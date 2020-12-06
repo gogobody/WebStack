@@ -54,7 +54,7 @@ $this->widget('Widget_Metas_Category_List')->to($categories);
     <?php endif; ?>
 
     <?php while ($categories->next()):
-        if ($hidecategries and in_array($categories->mid,$hidecategries)){continue;}
+        if ($hidecategries and (in_array($categories->mid,$hidecategries) or ($categories->parent and in_array($categories->parent,$hidecategries)))){continue;}
         ?>
         <?php if (count($categories->children) === 0): ?>
             <?php $this->widget('Widget_Archive@category-' . $categories->mid, 'order=order&pageSize=1000&type=navigation', 'mid=' . $categories->mid)->to($posts); ?>

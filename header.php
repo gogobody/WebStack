@@ -21,7 +21,6 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/icon.png">
     <?php $this->header(); ?>
-    <!--仿凡科 右侧悬浮窗-->
     <style>.fk_service_qrimg_site {background-image: url(<?php $this->options->fk_one_gzhimg(); ?>);}
         <?php /*单栏*/if($this->options->one_pcsl == 0): ?>
         .col-sm-3 {width: 100%;}
@@ -49,7 +48,10 @@
             .col-sm-3 {width: 33%;float: left;position: relative;min-height: 1px;padding-left: 1px !important;padding-right: 1px !important;}
         <?php endif; ?>}
         .bright{
-            --background-c:<?php ?>
+            --background-c:<?php _e($this->options->bgcolor); ?>
+        }
+        .night{
+            --background-c:<?php _e($this->options->nbgcolor); ?>
         }
     </style>
 </head>

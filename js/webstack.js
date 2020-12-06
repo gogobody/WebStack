@@ -411,7 +411,9 @@ var webStack = {
         });
     },
     resizeNavBar:function(){
-        document.querySelector("nav.navbar").style.left = document.querySelector("div.sidebar-menu.toggle-others.fixed").offsetWidth+"px"
+        var navbar = document.querySelector("nav.navbar")
+
+        navbar.style.left = document.querySelector("div.sidebar-menu.toggle-others.fixed").offsetWidth+"px"
     },
     toggleBarInit: function () {
         // toggle
@@ -462,14 +464,18 @@ var webStack = {
             ev.preventDefault();
 
             public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
+            if (public_vars.$userInfoMenu.hasClass('mobile-is-visible')){
+                public_vars.$userInfoMenu.toggleClass('mobile-is-visible');
+            }
             ps_destroy();
         });
         // Mobile User Info Menu Trigger
         $('a[data-toggle="user-info-menu"]').on('click', function (ev) {
             ev.preventDefault();
-
             public_vars.$userInfoMenu.toggleClass('mobile-is-visible');
-
+            if (public_vars.$mainMenu.hasClass('mobile-is-visible')){
+                public_vars.$mainMenu.toggleClass('mobile-is-visible');
+            }
         });
     }
 }

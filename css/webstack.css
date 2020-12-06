@@ -21,6 +21,7 @@ a {
     --nav-hight:75px;
     --color-black:#2c2e2f;
     --text-color:#979898;
+    --mobile-nav-hight:81px;
 }
 .bright{
     --background-c:#f1f5f8; /*#f9f9f9*/
@@ -1368,7 +1369,8 @@ footer.main-footer.fixed {
 
     .all-layout .navbar.user-info-navbar.mobile-is-visible {
         display: block;
-        top: 111px;
+        top: var(--mobile-nav-hight);
+        left: 0!important;
     }
     .user-info-navbar .user-info-menu.left-links{
         max-height: 60px;
@@ -1376,7 +1378,7 @@ footer.main-footer.fixed {
         flex-direction: row;
         align-items: center;
         align-content: center;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 100%;
     }
     .all-layout .navbar.user-info-navbar .user-info-menu > li {
