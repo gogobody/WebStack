@@ -9,6 +9,12 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 $this->need('header.php');
+global $categories,$hidecategries;
+$hidecategries = $this->options->hidecategories;
+$hidecategries = str_replace(" ", "", $hidecategries);
+$hidecategries = explode("||",$hidecategries);
+$categories = null;
+$this->widget('Widget_Metas_Category_List')->to($categories);
 ?>
 <?php $this->need('sidebar.php'); ?>
 
@@ -46,11 +52,12 @@ $this->need('header.php');
     <?php if ($this->options->isSearch == 1): ?>
         <?php $this->need('search.php'); ?>
     <?php endif; ?>
-    <?php $categories = null;
-    $this->widget('Widget_Metas_Category_List')->to($categories); ?>
-    <?php while ($categories->next()): ?>
+
+    <?php while ($categories->next()):
+        if ($hidecategries and in_array($categories->mid,$hidecategries)){continue;}
+        ?>
         <?php if (count($categories->children) === 0): ?>
-            <?php $this->widget('Widget_Archive@category-' . $categories->mid, 'order=order&pageSize=1000&type=category', 'mid=' . $categories->mid)->to($posts); ?>
+            <?php $this->widget('Widget_Archive@category-' . $categories->mid, 'order=order&pageSize=1000&type=navigation', 'mid=' . $categories->mid)->to($posts); ?>
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="<?php $categories->name(); ?>"></i><?php $categories->name(); ?></h4>
             <div class="row">
                 <?php while ($posts->next()): ?>
@@ -136,7 +143,7 @@ $this->need('header.php');
                 </li>
                 <li class="fk_service_box fk_service_upward " onclick="javascript:document.getElementById('01').click();"
                     style="display: block;">
-                    <a id="01" href="/#" rel="go-top" class="fk_service_box fk_service_upward ">1</a>
+                    <a id="01" href="javascript:void(0)" rel="go-top" class="fk_service_box fk_service_upward" onclick="$('html,body').animate({scrollTop:'0px'},{duration:400,easing: 'swing'});">1</a>
                     <div class="fk_service_upward_cont"><span class="fk_service_triangle"></span> <span> 返回顶部 </span></div>
                     <a class="to-top" style="cursor: pointer; position: fixed; right: 38px; bottom: 38px;"
                        id="d41d8cd98f00b204e9800998ecf8427e" "><i class="icon-up-small"></i></a>

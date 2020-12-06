@@ -14,9 +14,7 @@ function themeConfig($form) {
                 <li data-current="j-setting-global">公共设置</li>
                 <li data-current="j-setting-image">图片设置</li>
                 <li data-current="j-setting-module">模块设置</li>
-                <li data-current="j-setting-aside">侧栏设置</li>
-                <li data-current="j-setting-color">色彩圆角</li>
-                <li data-current="j-setting-index">首页设置</li>
+                <li data-current="j-setting-color">色彩设置</li>
                 <li data-current="j-setting-other">其他设置</li>
             </ul>
             <?php require_once("core/backup.php"); ?>
@@ -88,10 +86,14 @@ function themeConfig($form) {
      * 图片设置
      */
     // 大logo
-    $Biglogo = new Typecho_Widget_Helper_Form_Element_Text('Biglogo', NULL, '/usr/themes/WebStack/images/logo@2x.png', _t('大LOGO地址(必填)'), _t('大logo地址，尺寸178*40'));
+    $Biglogo = new Typecho_Widget_Helper_Form_Element_Text('Biglogo', NULL, '/usr/themes/WebStack/images/logo@2x.png', _t('大LOGO地址'), _t('大logo地址，尺寸178*40'));
     $Biglogo->setAttribute('class', 'j-setting-content j-setting-image');
     $form->addInput($Biglogo);
 
+    // 小logo
+    $smalllogo = new Typecho_Widget_Helper_Form_Element_Text('smalllogo', NULL, '/usr/themes/WebStack/images/logo-collapsed@2x.png', _t('小LOGO地址'), _t('收缩后的小logo地址，尺寸80*80'));
+    $smalllogo->setAttribute('class', 'j-setting-content j-setting-image');
+    $form->addInput($smalllogo);
     /**
      * 模块设置
      */
@@ -212,8 +214,23 @@ function themeConfig($form) {
     $fk_one_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($fk_one_url);
 
+    /**
+     * 色彩设置
+     */
+    $bgcolor = new Typecho_Widget_Helper_Form_Element_Text('bgcolor', NULL, '#f1f5f8', _t('白天模式 背景色'), _t('白天模式 背景色，默认#f1f5f8'));
+    $bgcolor->setAttribute('class', 'j-setting-content j-setting-color');
+    $form->addInput($bgcolor);
 
+    $nbgcolor = new Typecho_Widget_Helper_Form_Element_Text('nbgcolor', NULL, '#2c2e2f', _t('黑夜模式 背景色'), _t('黑夜模式 背景色，默认#2c2e2f'));
+    $nbgcolor->setAttribute('class', 'j-setting-content j-setting-color');
+    $form->addInput($nbgcolor);
 
+    /**
+     * 其他设置
+     */
+    $hidecategories = new Typecho_Widget_Helper_Form_Element_Text('hidecategories', NULL, null, _t('隐藏分类'), _t('隐藏某些分类，分类 mid 用||分割，比如 1||2||3'));
+    $hidecategories->setAttribute('class', 'j-setting-content j-setting-other');
+    $form->addInput($hidecategories);
 }
 //输出导航
 function themeFields($layout) {

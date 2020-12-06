@@ -1,3 +1,8 @@
+<?php
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+global $categories,$hidecategries;
+?>
+
 <div class="sidebar-menu toggle-others fixed">
     <div class="sidebar-menu-inner">
         <header class="logo-env">
@@ -8,7 +13,7 @@
                          alt="<?php $this->options->IndexName(); ?>"/>
                 </a>
                 <a href="<?php $this->options->siteUrl(); ?>" class="logo-collapsed">
-                    <img src="http://webstack.cc/assets/images/logo-collapsed@2x.png" width="40" alt="">
+                    <img src="<?php $this->options->smalllogo(); ?>" width="40" alt="<?php $this->options->IndexName(); ?>">
                 </a>
             </div>
             <div class="mobile-menu-toggle hidden-less-ipad">
@@ -21,27 +26,29 @@
             </div>
         </header>
         <ul id="main-menu" class="main-menu">
-            <?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?>
-            <?php while ($categorys->next()): ?>
-                <?php if ($categorys->levels === 0): ?>
-                    <?php $children = $categorys->getAllChildren($categorys->mid); ?>
+
+            <?php while ($categories->next()):
+                if ($hidecategries and in_array($categories->mid,$hidecategries)){continue;}
+                ?>
+                <?php if ($categories->levels === 0): ?>
+                    <?php $children = $categories->getAllChildren($categories->mid); ?>
                     <?php if (empty($children)) { ?>
                         <li>
-                            <a href="<?php echo '#'.$categorys->name; ?>"
+                            <a href="<?php echo '#'.$categories->name; ?>"
                                class="smooth">
-                                <i class="fa fa-<?php $categorys->slug(); ?>"></i>
-                                <span class="title"><?php $categorys->name(); ?></span>
+                                <i class="fa fa-<?php $categories->slug(); ?>"></i>
+                                <span class="title"><?php $categories->name(); ?></span>
                             </a>
                         </li>
                     <?php } else { ?>
                         <li>
                             <a>
-                                <i class="fa fa-<?php $categorys->slug(); ?>"></i>
-                                <span class="title"><?php $categorys->name(); ?></span>
+                                <i class="fa fa-<?php $categories->slug(); ?>"></i>
+                                <span class="title"><?php $categories->name(); ?></span>
                             </a>
                             <ul>
                                 <?php foreach ($children as $mid) { ?>
-                                    <?php $child = $categorys->getCategory($mid); ?>
+                                    <?php $child = $categories->getCategory($mid); ?>
                                     <li>
                                         <a href="<?php echo '#'.$child['name']; ?>"
                                            class="smooth"><?php echo $child['name']; ?></a>

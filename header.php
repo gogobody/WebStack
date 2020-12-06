@@ -22,69 +22,34 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <?php $this->header(); ?>
     <!--仿凡科 右侧悬浮窗-->
-    <style>
-        .fk_service_qrimg_site {
-            background-image: url(<?php $this->options->fk_one_gzhimg(); ?>);
-        }
+    <style>.fk_service_qrimg_site {background-image: url(<?php $this->options->fk_one_gzhimg(); ?>);}
         <?php /*单栏*/if($this->options->one_pcsl == 0): ?>
-        .col-sm-3 {
-            width: 100%;
-        }
+        .col-sm-3 {width: 100%;}
         <?php /*双栏*/elseif($this->options->one_pcsl == 1): ?>
-        .col-sm-3 {
-            width: 50%;
-        }
+        .col-sm-3 { width: 50%;}
         <?php /*三栏*/elseif($this->options->one_pcsl == 2): ?>
-        .col-sm-3 {
-            width: 33%;
-        }
+        .col-sm-3 {width: 33%;}
         <?php /*四栏*/elseif($this->options->one_pcsl == 3): ?>
-        .col-sm-3 {
-            width: 25%;
-        }
+        .col-sm-3 {width: 25%;}
         <?php /*五栏*/elseif($this->options->one_pcsl == 4): ?>
-        .col-sm-3 {
-            width: 20%;
-        }
+        .col-sm-3 {width: 20%;}
         <?php /*六栏*/elseif($this->options->one_pcsl == 5): ?>
-        .col-sm-3 {
-            width: 16.6%;
-        }
+        .col-sm-3 {width: 16.6%;}
         <?php /*七栏*/elseif($this->options->one_pcsl == 6): ?>
-        .col-sm-3 {
-            width: 14.2%;
-        }
+        .col-sm-3 {width: 14.2%;}
         <?php /*八栏*/elseif($this->options->one_pcsl == 7): ?>
-        .col-sm-3 {
-            width: 12.5%;
-        }
+        .col-sm-3 {width: 12.5%;}
         <?php endif; ?>
         @media (max-width: 768px) {
         <?php /*手机端双栏显示 常规尺寸*/if($this->options->one_wapsl == 0): ?>
-            .col-sm-3 {
-                width: 100%;
-            }
+            .col-sm-3 {width: 100%;}
         <?php elseif($this->options->one_wapsl == 1): ?>
-            .col-sm-3 {
-                width: 50%;
-                float: left;
-            }
-            .xe-widget.xe-conversations {
-                position: relative;
-                background: #fff;
-                margin-bottom: 0px;
-            }
+            .col-sm-3 {width: 50%;float: left;}.xe-widget.xe-conversations {position: relative;background: #fff;margin-bottom: 0;}
         <?php elseif($this->options->one_wapsl == 2): ?>
-            .col-sm-3 {
-                width: 33%;
-                float: left;
-                position: relative;
-                min-height: 1px;
-                padding-left: 1px !important;
-                padding-right: 1px !important;
-            }
-
-        <?php endif; ?>
+            .col-sm-3 {width: 33%;float: left;position: relative;min-height: 1px;padding-left: 1px !important;padding-right: 1px !important;}
+        <?php endif; ?>}
+        .bright{
+            --background-c:<?php ?>
         }
     </style>
 </head>

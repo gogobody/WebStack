@@ -25,6 +25,9 @@ a {
 .bright{
     --background-c:#f1f5f8; /*#f9f9f9*/
 }
+.night{
+    --background-c:#2c2e2f;
+}
 
 body {
     background-color: var(--background-c)
@@ -119,7 +122,6 @@ li {
 
 
 body.night, body.night #body {
-    background-color: var(--color-black) !important;
     color: #a9a9a9 !important
 }
 
