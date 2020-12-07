@@ -102,7 +102,7 @@ var webStack = {
                 window.location.href = siteUrl + $(this).attr("href")
                 return false
             }
-
+            var that = this
             ev.preventDefault();
             $("#main-menu li").each(function () {
                 $(this).removeClass("active");
@@ -110,8 +110,9 @@ var webStack = {
             $(this).parent("li").addClass("active");
 
             public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
+            console.log($(that).attr("href"))
             $("html, body").animate({
-                scrollTop: $($(this).attr("href")).offset().top - 105
+                scrollTop: $($(that).attr("href")).offset().top - 105
             }, {
                 duration: 500,
                 easing: "swing"

@@ -1969,7 +1969,9 @@ a.text-primary:hover {
     color: #555;
     font-size: 17px;
 }
-
+.text-gray i{
+    margin-right: 7px;
+}
 a.text-gray:hover {
     color: #3b3b3b
 }
