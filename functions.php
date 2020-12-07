@@ -33,7 +33,7 @@ function themeConfig($form) {
     $weatheropen->setAttribute('class', 'j-setting-content j-setting-global');
     $form->addInput($weatheropen);
 
-    $usecdn = new Typecho_Widget_Helper_Form_Element_Radio('usecdn', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('使用CDN'), _t("是否开启CDN，js和css 会直接从cdn加载"));
+    $usecdn = new Typecho_Widget_Helper_Form_Element_Radio('usecdn', array(0 => _t('禁用'), 1 => _t('启用')), 0, _t('使用CDN'), _t("是否开启CDN，js和css 会直接从cdn加载"));
     $usecdn->setAttribute('class', 'j-setting-content j-setting-global');
     $form->addInput($usecdn);
 

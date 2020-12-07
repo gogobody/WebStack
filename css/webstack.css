@@ -16,7 +16,7 @@ a {
 }
 :root{
     --nav-index:1024;
-    --nav-expand-width:280px;
+    --nav-expand-width:260px;
     --nav-narrow-width:80px;
     --nav-hight:75px;
     --color-black:#2c2e2f;
@@ -48,6 +48,7 @@ body {
 
 .all-layout{
     padding-top: var(--nav-hight);
+    height: 100%;
 }
 
 @media screen and (max-width: 1221px) {
@@ -737,10 +738,11 @@ body, html {
     vertical-align: top;
     word-break: break-word;
     width: 100%;
+    font-size: 14px;
     -webkit-transition: opacity .1s ease-in-out;
     -moz-transition: opacity .1s ease-in-out;
     -o-transition: opacity .1s ease-in-out;
-    transition: opacity .1s ease-in-out
+    transition: opacity .1s ease-in-out;
 }
 
 .page-container .main-content:hover {
@@ -809,7 +811,8 @@ body, html {
 
 .sidebar-menu .logo-env {
     padding: 19px 45px;
-    border-bottom: 1px solid #313437
+    border-bottom: 1px solid #313437;
+    background-color: var(--color-black);
 }
 
 .sidebar-menu .logo-env .logo {
@@ -821,16 +824,22 @@ body, html {
 }
 
 .sidebar-menu .main-menu {
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    list-style: none
+    padding-left: 0;
+    padding-right: 0;
+    list-style: none;
+    background-color: var(--color-black);
+    margin-bottom: 0;
+    height: fit-content;
 }
-
+.sidebar-menu .main-menu > li{
+    padding: 0 40px;
+}
+.sidebar-menu.collapsed .main-menu > li{
+    padding: 0;
+}
 @media screen and (max-width: 768px) {
     .sidebar-menu .main-menu {
-        margin-top: 10px;
+        margin-top: 0;
         margin-bottom: 10px
     }
 }
@@ -942,10 +951,10 @@ body, html {
     top: 0;
     bottom: 0;
     width: inherit;
-    background: var(--color-black);
     overflow-y: scroll;
     overflow-x: hidden;
     box-shadow: rgba(0,0,0,.2) 0 1px 3px, rgba(157,182,200,.1) 0 1px 20px;
+    height: auto;
 }
 .sidebar-menu.fixed .sidebar-menu-inner::-webkit-scrollbar{
     display: none;
@@ -1312,7 +1321,7 @@ footer.main-footer.fixed {
     }
 
     .page-container .sidebar-menu .sidebar-menu-inner {
-        position: relative
+        position: fixed;
     }
 
     .page-container .sidebar-menu .sidebar-menu-inner .logo-env, .page-container .sidebar-menu .sidebar-menu-inner .main-menu {
@@ -1323,7 +1332,12 @@ footer.main-footer.fixed {
     .page-container .sidebar-menu .sidebar-menu-inner .logo-env {
         margin-bottom: 0;
         padding-top: 20px;
-        padding-bottom: 20px
+        padding-bottom: 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--color-black);
+        z-index: 2;
     }
 
     .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle {
@@ -1356,7 +1370,13 @@ footer.main-footer.fixed {
     }
 
     .page-container .sidebar-menu .sidebar-menu-inner .main-menu.mobile-is-visible {
-        display: block
+        position: absolute;
+        display: block;
+        z-index: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--color-black);
+        top: var(--mobile-nav-hight);
     }
 
     .page-container .sidebar-menu .sidebar-menu-inner .main-menu > li:last-child > a {
@@ -2016,7 +2036,7 @@ a.text-white:hover {
     position: relative;
     background: #fff;
     margin-bottom: 0;
-    padding: 15px
+    padding: 8px 15px
 }
 
 .xe-widget.xe-conversations .xe-header {
@@ -2707,6 +2727,11 @@ input::-webkit-input-placeholder {
 @media screen and (min-width: 768.1px) {
     .hidden-less-ipad {
         display: none!important;
+    }
+}
+@media screen and (min-width: 450px) and (max-width: 768px){
+    .col-sm-3{
+        width: 50%;
     }
 }
 

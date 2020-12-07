@@ -5,7 +5,7 @@
 ?>
 <nav class="navbar user-info-navbar" role="navigation">
     <ul class="user-info-menu left-links list-inline list-unstyled">
-        <li class="hidden-xs">
+        <li class="d-none d-sm-table">
             <a href="#" data-toggle="sidebar">
                 <i class="fa-bars"></i>
             </a>
@@ -21,15 +21,15 @@
             </li>
         <?php endif; ?>
         <?php if ($this->options->weather):?>
-            <li class="hidden-sm hidden-xs weather">
+            <li class="d-none d-lg-table weather">
                 <a>
-                    <iframe allowtransparency="true" id="previewIframe" frameborder="0" width="244" height="18" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?debug=true&amp;s=3&amp;z=1&amp;t=1&amp;v=0&amp;d=1&amp;bd=0&amp;k=&amp;f=808080&amp;ltf=009944&amp;htf=ff8000&amp;q=1&amp;e=1&amp;a=1&amp;c=54511&amp;w=244&amp;h=18&amp;align=center"></iframe>
+                    <iframe allowtransparency="true" id="previewIframe" frameborder="0" width="236" height="18" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?debug=true&amp;s=3&amp;z=1&amp;t=1&amp;v=0&amp;d=1&amp;bd=0&amp;k=&amp;f=808080&amp;ltf=009944&amp;htf=ff8000&amp;q=1&amp;e=1&amp;a=1&amp;c=54511&amp;w=244&amp;h=18&amp;align=center"></iframe>
                 </a>
             </li>
         <?php endif; ?>
     </ul>
     <ul class="user-info-menu right-links list-inline list-unstyled">
-        <li class="hidden-sm hidden-xs hidden-md">
+        <li class="d-none d-xl-table">
             <a href="https://github.com/gogobody/WebStack" target="_blank">
                 <i class="fa-github"></i>  GitHub
             </a>

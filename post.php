@@ -2,12 +2,12 @@
 <?php $this->need('header.php'); ?>
  <?php $this->need('sidebar.php'); ?>
          <div class="main-content" >
-            <div class="row">
+            <div class="">
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <h1 class="text-gray"><?php $this->title() ?></h1>
                         <div class="panel-body">
-                            <div class="row">
+                            <div class="">
                                 <div class="col-sm-12">
                                     <blockquote>
                                         <?php $this->content(); ?>

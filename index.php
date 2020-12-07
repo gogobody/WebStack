@@ -23,25 +23,25 @@ $this->widget('Widget_Metas_Category_List')->to($categories);
     <!--顶部新增模块开始	-->
     <?php if ($this->options->one_top_main == 1): ?>
         <div class="wapnone one_top_main">
-            <div class="col-lg-4 wapnone">
+            <div class="col-lg-3 col-md-3 wapnone">
                 <a class="colorful-card one_top_one" target="_blank"
                    href="<?php $this->options->one_top_main_one_url(); ?>">
                     <i class="<?php $this->options->one_top_main_one_icon(); ?>"></i><?php $this->options->one_top_main_one_name(); ?>
                 </a>
             </div>
-            <div class="col-lg-4 wapnone">
+            <div class="col-lg-3 col-md-3 wapnone">
                 <a class="colorful-card one_top_two" target="_blank"
                    href="<?php $this->options->one_top_main_two_url(); ?>">
                     <i class="<?php $this->options->one_top_main_two_icon(); ?>"></i><?php $this->options->one_top_main_two_name(); ?>
                 </a>
             </div>
-            <div class="col-lg-4 wapnone">
+            <div class="col-lg-3 col-md-3 wapnone">
                 <a class="colorful-card one_top_three" target="_blank"
                    href="<?php $this->options->one_top_main_three_url(); ?>">
                     <i class="<?php $this->options->one_top_main_three_icon(); ?>"></i><?php $this->options->one_top_main_three_name(); ?>
                 </a>
             </div>
-            <div class="col-lg-4 wapnone">
+            <div class="col-lg-3 col-md-3 wapnone">
                 <a class="colorful-card one_top_four" target="_blank"
                    href="<?php $this->options->one_top_main_four_url(); ?>">
                     <i class="<?php $this->options->one_top_main_four_icon(); ?>"></i><?php $this->options->one_top_main_four_name(); ?>
@@ -58,7 +58,7 @@ $this->widget('Widget_Metas_Category_List')->to($categories);
         ?>
         <?php if (count($categories->children) === 0): ?>
             <?php $this->widget('Widget_Archive@category-' . $categories->mid, 'order=order&pageSize=1000&type=navigation', 'mid=' . $categories->mid)->to($posts); ?>
-            <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="<?php $categories->name(); ?>"></i><?php $categories->name(); ?></h4>
+            <h5 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="<?php $categories->name(); ?>"></i><?php $categories->name(); ?></h5>
             <div class="row">
                 <?php while ($posts->next()): ?>
                     <div class="col-sm-3">

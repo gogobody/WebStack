@@ -10,12 +10,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  <?php $this->need('sidebar.php'); ?>
          <div class="main-content">
              <?php $this->need('components/nav.php'); ?>
-             <div class="row">
+             <div class="">
                 <div class="panel panel-default">
                     <!-- 关于网站 -->
                     <h4 class="text-gray">关于网站</h4>
                     <div class="panel-body">
-                        <div class="row">
+                        <div class="">
                             <div class="content col-sm-12">
                                 <!--<blockquote>-->
                                     <?php $this->content(); ?>

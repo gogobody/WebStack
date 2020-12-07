@@ -3,7 +3,7 @@
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
     <?php if ($comments->have()): ?>
-	<h4><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></h4>
+	<h5><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></h5>
     
     <?php $comments->listComments(array(
             'dateFormat' => 'Y年m月d日'
@@ -19,7 +19,7 @@
         <?php $comments->cancelReply(); ?>
         </div>
     
-    	<h4 id="response"><?php _e('添加新评论'); ?></h4>
+    	<h5 id="response"><?php _e('添加新评论'); ?></h5>
     	<form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
             <?php if($this->user->hasLogin()): ?>
     		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a></p>
@@ -40,7 +40,7 @@
                 <textarea rows="8" cols="50" name="text" id="textarea" placeholder="<?php _e('说点什么吧'); ?>" class="textarea" required><?php $this->remember('text'); ?></textarea>
             </div>
     		<p>
-                <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
+                <button type="submit" class="btn btn-primary"><?php _e('提交评论'); ?></button>
             </p>
     	</form>
     </div>

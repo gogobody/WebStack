@@ -21,9 +21,9 @@
         <div class="one_footer_mar">
             <!--底部修改开始-->
             &copy; <?php echo date('Y'); ?>&nbsp;Theme:
-            <a href="https://bbs.geekscholar.net/" target="_blank"><strong> Gogobody</strong></a>&nbsp; Design BY <a
+            <a href="https://github.com/gogobody/WebStack" target="_blank"><strong> WebStack</strong></a>&nbsp; Design BY <a
                     href="http://webstack.cc" target="_blank"><strong>Webstack</strong></a>&nbsp; Modify BY <a
-                    href="https://www.zmki.cn/5366.html" target="_blank"><strong>ZMKI</strong></a>
+                    href="https://bbs.geekscholar.net/d/35-webstack" target="_blank"><strong>GOGOBODY</strong></a>
             &nbsp;&nbsp;版权所有:<b><?php $this->options->one_r(); ?></b>
             &nbsp;&nbsp;&nbsp;<a href="http://beian.miit.gov.cn/"
                                  target="_blank"><strong> <?php $this->options->one_icp(); ?> </strong></a>
@@ -78,8 +78,11 @@
 if ($this->is('index')) $nowpage = 'index'; else $nowpage = 'page';
 echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";</script>' ?>
 <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/1.1.3/lazysizes.min.js" async=""></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>-->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
 <?php if ($this->options->usecdn):?>
 <script src="https://cdn.jsdelivr.net/gh/gogobody/WebStack/js/webstack.min.js"></script>
 <?php else:?>
