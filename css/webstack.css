@@ -64,6 +64,7 @@ body {
     background: white;
     border-radius: calc(var(--radius-pc)/2);
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .one_top_main {
@@ -860,7 +861,7 @@ body, html {
 
 .sidebar-menu .main-menu a > i {
     display: inline-block;
-    margin-right: 10px
+    width: 17px;
 }
 
 .sidebar-menu .main-menu a > i + span {
@@ -1030,7 +1031,7 @@ body, html {
 
     .sidebar-menu.collapsed .main-menu > li > a > i {
         margin-right: 0;
-        font-size: 16px
+        font-size: 18px
     }
 
     .sidebar-menu.collapsed .main-menu > li > a > span {
@@ -2733,7 +2734,7 @@ banner
 .main-content .index-banner{
     width: 100%;
     display: flex;
-    padding-top: 20px;
+    padding-top: 10px;
     margin-bottom: 10px;
 }
 .main-content .index-banner #carouselSwiperCaptions {
