@@ -330,12 +330,15 @@ class Widget_Post_hot extends Widget_Abstract_Contents
 }
 
 /* 随机图片 */
-function GetRandomThumbnail($widget)
+function GetRandomThumbnail($widget, $userandome=false)
 {
     $random = THEME_URL . '/assets/img/random/' . rand(1, 25) . '.webp';
     if (Helper::options()->Jmos) {
         $moszu = explode("\r\n", Helper::options()->Jmos);
         $random = $moszu[array_rand($moszu, 1)] . "?jrandom=" . mt_rand(0, 1000000);
+    }
+    if ($userandome){
+        return $random;
     }
     $pattern = '/\<img.*?src\=\"(.*?)\"[^>]*>/i';
     $patternMD = '/\!\[.*?\]\((http(s)?:\/\/.*?(jpg|jpeg|gif|png|webp))/i';

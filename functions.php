@@ -28,7 +28,9 @@ function themeConfig($form) {
     <?php
 
     $options = Helper::options();
-
+    /**
+     * 全局设置
+     */
     $weatheropen = new Typecho_Widget_Helper_Form_Element_Radio('weather', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('天气开关'), _t("是否开启天气"));
     $weatheropen->setAttribute('class', 'j-setting-content j-setting-global');
     $form->addInput($weatheropen);
@@ -78,13 +80,21 @@ function themeConfig($form) {
     $one_r->setAttribute('class', 'j-setting-content j-setting-global');
     $form->addInput($one_r);
 
-    // 友情链接
-    $one_footer_links = new Typecho_Widget_Helper_Form_Element_Radio('one_footer_links', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('底部友情链接'), _t('是否开启底部友情链接'));
-    $one_footer_links->setAttribute('class', 'j-setting-content j-setting-module');
-    $form->addInput($one_footer_links);
+
     /**
      * 图片设置
      */
+    $JLazyLoad = new Typecho_Widget_Helper_Form_Element_Text(
+        'JLazyLoad',
+        NULL,
+        NULL,
+        '全局懒加载图（非必填）',
+        '介绍：用于修改全局懒加载图片 <br />
+         格式：base64 或者 图片url'
+    );
+    $JLazyLoad->setAttribute('class', 'j-setting-content j-setting-image');
+    $form->addInput($JLazyLoad);
+
     // 大logo
     $Biglogo = new Typecho_Widget_Helper_Form_Element_Text('Biglogo', NULL, '/usr/themes/WebStack/images/logo@2x.png', _t('大LOGO地址'), _t('大logo地址，尺寸178*40'));
     $Biglogo->setAttribute('class', 'j-setting-content j-setting-image');
@@ -97,6 +107,74 @@ function themeConfig($form) {
     /**
      * 模块设置
      */
+    // nav
+    $navrightUrl = new Typecho_Widget_Helper_Form_Element_Text('navrightUrl', NULL, 'https://github.com/gogobody/WebStack', _t('顶部导航栏右侧链接'), _t('输入你的顶部导航栏右侧自定义链接，默认 https://github.com/gogobody/WebStack'));
+    $navrightUrl->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($navrightUrl);
+
+    $navrightText = new Typecho_Widget_Helper_Form_Element_Text('navrightText', NULL, 'Github', _t('顶部导航栏右侧文字'), _t('输入你的首页导航栏右侧自定义文字，默认 Github'));
+    $navrightText->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($navrightText);
+
+    $navrightIcon = new Typecho_Widget_Helper_Form_Element_Text('navrightIcon', NULL, 'fa-github', _t('顶部导航栏右侧图标'), _t('输入你的首页导航栏右侧自定义 fontawesome v 4.7 的图标，默认 fa-github'));
+    $navrightIcon->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($navrightIcon);
+
+    // 顶栏 文字自定义
+    $one_name = new Typecho_Widget_Helper_Form_Element_Text('one_name', NULL, '即刻学术', _t('顶栏AD文字'), _t('输入你的首页顶栏收录提交右侧自定义文字，默认 即刻学术'));
+    $one_name->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($one_name);
+
+    // 顶栏 链接自定义
+    $one_url = new Typecho_Widget_Helper_Form_Element_Text('one_url', NULL, 'https://bbs.geekscholar.net/', _t('顶栏AD链接'), _t('输入你的首页顶栏收录提交右侧文字调整的url，默认 https://bbs.geekscholar.net/'));
+    $one_url->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($one_url);
+
+    $one_links = new Typecho_Widget_Helper_Form_Element_Text('one_links', NULL, _t(Typecho_Common::url('/links.html',$options->index)), _t('收录提交URL链接'), _t('默认访问/links.html  请前往管理-独立页面设置页面并填入内容，开启评论用做收录提交页，并返回此处填写链接'));
+    $one_links->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($one_links);
+
+    $Isabout = new Typecho_Widget_Helper_Form_Element_Text('Isabout', NULL, _t(Typecho_Common::url('/about.html',$options->index)), _t('关于我们URL链接'), _t('默认访问/about.html  与上一条同理'));
+    $Isabout->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($Isabout);
+
+    // 轮播
+    $JIndexCarousel = new Typecho_Widget_Helper_Form_Element_Textarea(
+        'JIndexCarousel',
+        NULL,
+        NULL,
+        '轮播图（非必填）',
+        '介绍：用于显示轮播图，请务必填写正确的格式 <br />
+         格式：图片地址 || 跳转链接 || 标题 （中间使用两个竖杠分隔）<br />
+         其他：一行一个，一行代表一个轮播图 <br />
+         例如：<br />
+            https://puui.qpic.cn/media_img/lena/PICykqaoi_580_1680/0 || http://baidu.com || 百度一下 <br />
+            https://puui.qpic.cn/tv/0/1223447268_1680580/0 || http://v.qq.com || 腾讯视频
+         '
+    );
+    $JIndexCarousel->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($JIndexCarousel);
+    // 推荐文章
+    $JIndexRecommend = new Typecho_Widget_Helper_Form_Element_Textarea(
+        'JIndexRecommend',
+        NULL,
+        NULL,
+        '推荐（非必填，填写时请填写2个，否则不显示！）',
+        '介绍：用于显示推荐文章，也可用于广告，请务必填写正确的格式 <br/>
+         格式：图片地址 || 跳转链接 || 标题（中间使用两个竖杠分隔）<br />
+         一行一个 <br />
+         注意：如果填写的不是 4 个，将不会显示
+         '
+    );
+    $JIndexRecommend->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($JIndexRecommend);
+
+
+    // 友情链接
+    $one_footer_links = new Typecho_Widget_Helper_Form_Element_Radio('one_footer_links', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('底部友情链接'), _t('是否开启底部友情链接'));
+    $one_footer_links->setAttribute('class', 'j-setting-content j-setting-module');
+    $form->addInput($one_footer_links);
+
     // 顶部模块
     $one_top_main = new Typecho_Widget_Helper_Form_Element_Radio('one_top_main', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('<span style="color: #608cee; margin-right:0px;">顶部</span><span style="color: #fb5962;margin-right:0px;">多色</span><span style="color: #fbb359;margin-right:0px;">模块</span><span style="color: #53bf6b;margin-right:0px;">开关</span>'), _t("是否开启网站顶部四项多色小模块"));
     $one_top_main->setAttribute('class', 'j-setting-content j-setting-module');
@@ -152,24 +230,6 @@ function themeConfig($form) {
     $one_top_main_four_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_four_url', NULL, 'https://bbs.geekscholar.net', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>跳转链接'), _t('输入绿色模块跳转的链接,'));
     $one_top_main_four_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_four_url);
-
-    // 顶栏 文字自定义
-    $one_name = new Typecho_Widget_Helper_Form_Element_Text('one_name', NULL, '即刻学术', _t('顶栏AD文字'), _t('输入你的首页顶栏收录提交右侧自定义文字，默认 即刻学术'));
-    $one_name->setAttribute('class', 'j-setting-content j-setting-module');
-    $form->addInput($one_name);
-
-    // 顶栏 链接自定义
-    $one_url = new Typecho_Widget_Helper_Form_Element_Text('one_url', NULL, 'https://bbs.geekscholar.net/', _t('顶栏AD链接'), _t('输入你的首页顶栏收录提交右侧文字调整的url，默认 https://bbs.geekscholar.net/'));
-    $one_url->setAttribute('class', 'j-setting-content j-setting-module');
-    $form->addInput($one_url);
-
-    $one_links = new Typecho_Widget_Helper_Form_Element_Text('one_links', NULL, _t(Typecho_Common::url('/links.html',$options->index)), _t('收录提交URL链接'), _t('默认访问/links.html  请前往管理-独立页面设置页面并填入内容，开启评论用做收录提交页，并返回此处填写链接'));
-    $one_links->setAttribute('class', 'j-setting-content j-setting-module');
-    $form->addInput($one_links);
-
-    $Isabout = new Typecho_Widget_Helper_Form_Element_Text('Isabout', NULL, _t(Typecho_Common::url('/about.html',$options->index)), _t('关于我们URL链接'), _t('默认访问/about.html  与上一条同理'));
-    $Isabout->setAttribute('class', 'j-setting-content j-setting-module');
-    $form->addInput($Isabout);
 
     $isSearch = new Typecho_Widget_Helper_Form_Element_Radio('isSearch', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('<svg  class="icon one_aliico" aria-hidden="true"><use xlink:href="#icon-battery"></use></svg> 搜索功能'), _t("是否启用搜索"));
     $isSearch->setAttribute('class', 'j-setting-content j-setting-module');

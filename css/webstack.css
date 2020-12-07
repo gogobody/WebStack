@@ -22,6 +22,9 @@ a {
     --color-black:#2c2e2f;
     --text-color:#979898;
     --mobile-nav-hight:81px;
+    --radius-pc:10px;
+    --radius-wap:10px;
+    --top-m-width:717px;
 }
 .bright{
     --background-c:#f1f5f8; /*#f9f9f9*/
@@ -56,10 +59,26 @@ body {
         display: none
     }
 }
+.top-module{
+    padding-top: 1em;
+    background: white;
+    border-radius: calc(var(--radius-pc)/2);
+    width: 100%;
+}
 
 .one_top_main {
-    margin-top: 3em;
     display: flex;
+    max-width: var(--top-m-width);
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+    flex-wrap: wrap;
+}
+.one_top_main .color-m{
+    padding-left: 0;
+    max-width: 22%;
+    padding-right: 0;
 }
 .one_top_main a i{
     margin-right: 4px;
@@ -73,29 +92,10 @@ img {
     border-radius: 50px
 }
 
-@media (max-width: 768px) {
-    .logo_size {
-        max-width: 180px
-    }
-
-    .page-container .main-content {
-        margin-top: -20px !important;
-    }
-
-    .one_top_main {
-        margin-top: 0 !important
-    }
-}
 
 li {
     list-style: none
 }
-
-/*@font-face {*/
-/*    font-family: iconfont;*/
-/*    src: url(iconfont.eot);*/
-/*    src: url(iconfont.eot?#iefix) format('embedded-opentype'), url(iconfont.woff) format('woff'), url(iconfont.ttf) format('truetype'), url(iconfont.svg#iconfont) format('svg')*/
-/*}*/
 
 .icon {
     width: 1em;
@@ -123,6 +123,8 @@ li {
 }
 
 
+
+
 body.night, body.night #body {
     color: #a9a9a9 !important
 }
@@ -130,7 +132,9 @@ body.night, body.night #body {
 body.night .text-gray {
     color: #f8f8f8
 }
-
+body.night .top-module{
+    background-color: var(--background-c);
+}
 body.night .xe-widget.xe-conversations {
     background: var(--color-black)
 }
@@ -739,6 +743,8 @@ body, html {
     word-break: break-word;
     width: 100%;
     font-size: 14px;
+    overflow:auto;
+    overflow-x: hidden;
     -webkit-transition: opacity .1s ease-in-out;
     -moz-transition: opacity .1s ease-in-out;
     -o-transition: opacity .1s ease-in-out;
@@ -1279,7 +1285,7 @@ footer.main-footer.fixed {
     justify-content: center;
     color: #fff;
     transition: all 0.3s ease;
-    padding: 20px 10px;
+    padding: 5px 5px;
 }
 .colorful-card:visited {
     color: #FFFFFF;
@@ -1306,9 +1312,11 @@ footer.main-footer.fixed {
 
 @media screen and (max-width: 768px) {
     .page-container {
-        display: block
+        display: block;
     }
-
+    .page-container .main-content{
+        padding: 30px 12px;
+    }
     .page-container .main-content, .page-container .sidebar-menu {
         display: block;
         width: 100%;
@@ -1316,12 +1324,7 @@ footer.main-footer.fixed {
     }
 
     .page-container .sidebar-menu {
-        position: fixed;
         margin: 20px 0 0 0;
-    }
-
-    .page-container .sidebar-menu .sidebar-menu-inner {
-        position: fixed;
     }
 
     .page-container .sidebar-menu .sidebar-menu-inner .logo-env, .page-container .sidebar-menu .sidebar-menu-inner .main-menu {
@@ -2409,8 +2412,9 @@ a.text-white:hover {
 
 .sousuo {
     padding: 35px 0 35px 0;
-    max-width: 717px;
-    margin: 0 auto
+    max-width: var(--top-m-width);
+    margin: 0 auto;
+    width: 80%;
 }
 
 .search {
@@ -2444,7 +2448,8 @@ a.text-white:hover {
     border: none;
     outline: 0;
     padding-left: 45px;
-    border-radius: 10px
+    border-radius: 10px;
+    background-color: #f5f7f9;
 }
 
 .search-input:focus {
@@ -2718,12 +2723,121 @@ input::-webkit-input-placeholder {
 .text-gray {
     color: #555;
 }
-.main-content .content{
 
-}
 .main-content .comments{
     margin-top: 4em;
 }
+/**
+banner
+ */
+.main-content .index-banner{
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+.main-content .index-banner #carouselSwiperCaptions {
+    width: fit-content;
+    flex: 1;
+    height: 232px;
+    min-height: 232px;
+    max-height: 232px;
+    border-radius: calc(var(--radius-pc)/2);
+    overflow: hidden;
+}
+.main-content .index-banner .carousel-inner{
+    border-radius: calc(var(--radius-pc)/2);
+    overflow: hidden;
+    height: 100%;
+}
+.main-content .index-banner .carousel-inner .carousel-item{
+    border-radius: calc(var(--radius-pc)/2);
+    height: 100%;
+}
+.main-content .index-banner .carousel-inner img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.main-content .index-banner .carousel-inner .carousel-item .icon{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+
+.main-content .index-banner .recommend {
+    width: 458px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.main-content .index-banner .recommend a {
+    position: relative;
+    width: 48%;
+    height: 110px;
+    margin-bottom: 12px;
+    transition: opacity .35s;
+    border-radius: calc(var(--radius-pc)/2);
+    overflow: hidden;
+}
+.main-content .index-banner .recommend a:hover{
+    opacity: .85;
+}
+
+.main-content .index-banner .recommend a img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-content .index-banner .recommend a .desc {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background: linear-gradient(to bottom,rgba(6,6,6,0),rgba(6,6,6,.7));
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    color: white;
+
+}
+.main-content .index-banner .recommend a .desc .type {
+    color: var(--background);
+    font-size: 12px;
+    background-image: -webkit-gradient(linear,left top,right top,from(#fc712a),to(#f84c39));
+    background-image: -webkit-linear-gradient(left,#fc712a,#f84c39);
+    background-image: -moz-linear-gradient(left,#fc712a,#f84c39);
+    background-image: linear-gradient(to right,#fc712a,#f84c39);
+    background-color: #f84c39;
+    padding: 0 5px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: calc(var(--radius-pc)/4);
+    margin-right: 5px;
+}
+.main-content .index-banner .recommend a .desc p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    color: white;
+}
+
+
 @media screen and (min-width: 768.1px) {
     .hidden-less-ipad {
         display: none!important;
@@ -2735,12 +2849,91 @@ input::-webkit-input-placeholder {
     }
 }
 
+@media (max-width: 1200px){
+    .main-content .index-banner {
+        display: block;
+        padding-top: 10px;
+        overflow: hidden;
+    }
+
+    .main-content .index-banner #carouselSwiperCaptions {
+        width: 100%;
+        margin-top: 20px
+    }
+
+    .main-content .index-banner .recommend {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: row;
+        padding-top: 20px
+    }
+
+    .main-content .index-banner .recommend a {
+        margin-bottom: 8px;
+    }
+
+}
 @media (max-width: 768px) {
     .all-layout{
         padding-top: 0;
     }
     .fixpad{
-        margin-top: var(--nav-hight);
+        margin-top: 55px;
+    }
+    .logo_size {
+        max-width: 180px
+    }
+
+    .page-container .main-content {
+        margin-top: -20px !important;
+    }
+    .sousuo{
+        padding: 14px 0;
+        width: 95%;
+    }
+    .one_top_main {
+        margin-top: 0 !important;
+        padding-bottom: 10px;
+        width: 95%;
+    }
+    .one_top_main .color-m {
+        max-width: 48%;
+    }
+    .one_top_main .color-m .colorful-card{
+        margin-bottom: 3px;
+    }
+    .main-content .index-banner #carouselSwiperCaptions {
+        margin-top: 0;
+        margin-bottom: 15px;
+        height: 180px;
+        min-height: 180px;
+        max-height: 180px;
+        border-radius: var(--radius-wap)
+    }
+
+    .main-content .index-banner #carouselSwiperCaptions .carousel-inner {
+        height: 100%;
+        border-radius: var(--radius-wap)
+    }
+    .main-content .index-banner #carouselSwiperCaptions .carousel-inner .carousel-item{
+        height: 100%;
+    }
+    .main-content .index-banner .recommend {
+        padding-top: 0;
+        margin-bottom: 15px
+    }
+
+    .main-content .index-banner .recommend a {
+        height: 110px;
+        border-radius: var(--radius-wap)
+    }
+
+    .main-content .index-banner .recommend a:first-child {
+        margin-right: 5px
+    }
+
+    .main-content .index-banner .recommend a:last-child {
+        margin-left: 5px
     }
 }
 

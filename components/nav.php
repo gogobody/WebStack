@@ -28,12 +28,12 @@
             </li>
         <?php endif; ?>
     </ul>
+    <?php if ($this->options->navrightUrl): ?>
     <ul class="user-info-menu right-links list-inline list-unstyled">
         <li class="d-none d-xl-table">
-            <a href="https://github.com/gogobody/WebStack" target="_blank">
-                <i class="fa-github"></i>  GitHub
-            </a>
+            <a href="<?php _e($this->options->navrightUrl); ?>" target="_blank"><i class="<?php _e($this->options->navrightIcon); ?>"></i><?php _e($this->options->navrightText); ?></a>
         </li>
     </ul>
+    <?php endif; ?>
 </nav>
 

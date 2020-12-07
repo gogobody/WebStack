@@ -1,4 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+$this->need('components/floatBar.php')
 ?>
 
 <footer class="main-footer sticky footer-type-1">
