@@ -34,7 +34,8 @@ a {
 }
 
 body {
-    background-color: var(--background-c)
+    background-color: var(--background-c);
+    font-size: 14px;
 }
 .links_zmki {
     margin: 20px 0
@@ -1247,7 +1248,7 @@ footer.main-footer.fixed {
     position: relative;
     display: table-cell;
     vertical-align: middle;
-    padding: 0 20px;
+    padding: 0 15px;
     color: #979898;
     z-index: 5;
     text-decoration: none
@@ -1257,7 +1258,8 @@ footer.main-footer.fixed {
 }
 .user-info-navbar .user-info-menu > li > a i {
     font-size: 15px;
-    line-height: 1
+    line-height: 1;
+    margin-right: 2px;
 }
 
 .user-info-navbar .user-info-menu > li > a:hover {
@@ -1964,7 +1966,8 @@ a.text-primary:hover {
 }
 
 .text-gray {
-    color: #555
+    color: #555;
+    font-size: 17px;
 }
 
 a.text-gray:hover {

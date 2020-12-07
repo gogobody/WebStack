@@ -3,7 +3,6 @@ console.log(' %c Theme WebStack %c https://github.com/gogobody/WebStack', 'color
 /**
  * gloabl vars
  */
-
 // Sidebar Toggle
 var public_vars = public_vars || {};
 
@@ -36,7 +35,6 @@ var webStack = {
     resetStyle:function(){
         var width = $(window).width()
         if (768 < width && width < 987){
-            console.log($(window).width())
             $(".sidebar-menu.toggle-others").addClass("collapsed")
         }
         this.resizeNavBar()
@@ -283,6 +281,7 @@ var searchWidget = {
                         $("#box").css("display", "block");
                         for (var i = 0; i < hotList; i++) {
                             $("#box ul").append("<li><span>" + (i + 1) + "</span> " + res.s[i] + "</li>");
+                            box_ul_li = $("#box ul li")
                             box_ul_li.eq(i).click(function () {
                                 var thisText = filterChildren(this);
                                 txt_.val(thisText);
@@ -389,9 +388,8 @@ var searchWidget = {
                 window.open(searchData.thisSearch + textValue);
                 $("#box ul").html("")
             } else {
-                layer.msg("请输入关键词！", {time: 500}, function () {
-                    txt_.focus()
-                })
+                // 请输入关键词！
+                txt_.focus()
             }
         })
     }

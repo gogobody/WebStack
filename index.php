@@ -64,7 +64,9 @@ $this->widget('Widget_Metas_Category_List')->to($categories);
         ?>
         <?php if (count($categories->children) === 0): ?>
             <?php $this->widget('Widget_Archive@category-' . $categories->mid, 'order=order&pageSize=1000&type=navigation', 'mid=' . $categories->mid)->to($posts); ?>
-            <h5 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="<?php $categories->name(); ?>"></i><?php $categories->name(); ?></h5>
+            <h5 class="text-gray">
+                <i class="fa fa-bookmark-o" aria-hidden="true"></i> <?php $categories->name(); ?>
+            </h5>
             <div class="row">
                 <?php while ($posts->next()): ?>
                     <div class="col-sm-3">

@@ -3,7 +3,7 @@
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
     <?php if ($comments->have()): ?>
-	<h5><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></h5>
+	<h6><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></h6>
     
     <?php $comments->listComments(array(
             'dateFormat' => 'Y年m月d日'
@@ -19,7 +19,7 @@
         <?php $comments->cancelReply(); ?>
         </div>
     
-    	<h5 id="response"><?php _e('添加新评论'); ?></h5>
+    	<h6 id="response"><?php _e('添加新评论'); ?></h6>
     	<form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
             <?php if($this->user->hasLogin()): ?>
     		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a></p>
