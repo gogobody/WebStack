@@ -7,7 +7,7 @@
     <ul class="user-info-menu left-links list-inline list-unstyled">
         <li class="d-none d-sm-table">
             <a href="#" data-toggle="sidebar">
-                <i class="fa-bars"></i>
+                <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
         </li>
         <li class="hover-line"><a href="<?php $this->options->siteUrl(); ?>"><i class="fa fa-home"></i> 首页</a></li>
