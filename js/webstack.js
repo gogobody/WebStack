@@ -16,7 +16,7 @@ public_vars.$pageContainer = public_vars.$body.find(".page-container");
 public_vars.$sidebarMenu = public_vars.$body.find('.sidebar-menu');
 public_vars.$sidebarProfile = public_vars.$sidebarMenu.find('.sidebar-user-info');
 public_vars.$mainMenu = public_vars.$sidebarMenu.find('.main-menu');
-
+public_vars.$sidebarInner = $(".sidebar-menu-inner");
 public_vars.$horizontalNavbar = public_vars.$body.find('.navbar.horizontal-menu');
 public_vars.$horizontalMenu = public_vars.$horizontalNavbar.find('.navbar-nav');
 
@@ -111,9 +111,9 @@ var webStack = {
             $(this).parent("li").addClass("active");
 
             public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
-            console.log($(that).attr("href"))
+            public_vars.$sidebarInner.toggleClass('onfixed')
             $("html, body").animate({
-                scrollTop: $($(that).attr("href")).offset().top - 105
+                scrollTop: $($(that).attr("href")).offset().top - 95
             }, {
                 duration: 500,
                 easing: "swing"
@@ -143,7 +143,7 @@ var webStack = {
         // Mobile Menu Trigger
         $('a[data-toggle="mobile-menu"]').on('click', function (ev) {
             ev.preventDefault();
-            $(".sidebar-menu-inner").toggleClass('onfixed')
+            public_vars.$sidebarInner.toggleClass('onfixed')
             public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
             if (public_vars.$userInfoMenu.hasClass('mobile-is-visible')){
                 public_vars.$userInfoMenu.toggleClass('mobile-is-visible');
@@ -157,6 +157,7 @@ var webStack = {
         $('a[data-toggle="user-info-menu"]').on('click', function (ev) {
             ev.preventDefault();
             public_vars.$userInfoMenu.toggleClass('mobile-is-visible');
+            public_vars.$sidebarInner.toggleClass('onfixed')
             if (public_vars.$mainMenu.hasClass('mobile-is-visible')){
                 public_vars.$mainMenu.toggleClass('mobile-is-visible');
             }

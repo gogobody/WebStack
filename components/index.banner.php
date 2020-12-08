@@ -1,3 +1,12 @@
+<?php
+/**
+ * banner
+ *
+ * @package custom
+ *
+ */
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+?>
 <?php if (count((explode("\r\n", ($this->options->JIndexRecommend)))) == 4 || $this->options->JIndexCarousel) : ?>
     <div class="index-banner">
         <?php if ($this->options->JIndexCarousel) : ?>
