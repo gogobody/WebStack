@@ -815,7 +815,7 @@ body, html {
     top: 0;
     left: 0;
     width: var(--nav-expand-width);
-
+    z-index: 1;
 }
 .sidebar-menu.collapsed .logo-env{
     width: var(--sidebar-menu-collapsew);
