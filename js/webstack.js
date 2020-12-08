@@ -13,7 +13,7 @@ var sm_duration = .2,
 public_vars.$body = $("body");
 public_vars.$pageContainer = public_vars.$body.find(".page-container");
 
-public_vars.$sidebarMenu = public_vars.$pageContainer.find('.sidebar-menu');
+public_vars.$sidebarMenu = public_vars.$body.find('.sidebar-menu');
 public_vars.$sidebarProfile = public_vars.$sidebarMenu.find('.sidebar-user-info');
 public_vars.$mainMenu = public_vars.$sidebarMenu.find('.main-menu');
 
@@ -92,8 +92,9 @@ var webStack = {
     },
     resizeNavBar:function(){
         var navbar = document.querySelector("nav.navbar")
-
-        navbar.style.left = document.querySelector("div.sidebar-menu.toggle-others.fixed").offsetWidth+"px"
+        var leftw = document.querySelector("div.sidebar-menu.toggle-others.fixed").offsetWidth+"px"
+        navbar.style.left = leftw
+        public_vars.$pageContainer[0].style.paddingLeft = leftw
     },
     toggleBarInit: function () {
         // toggle
@@ -142,7 +143,7 @@ var webStack = {
         // Mobile Menu Trigger
         $('a[data-toggle="mobile-menu"]').on('click', function (ev) {
             ev.preventDefault();
-
+            $(".sidebar-menu-inner").toggleClass('onfixed')
             public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
             if (public_vars.$userInfoMenu.hasClass('mobile-is-visible')){
                 public_vars.$userInfoMenu.toggleClass('mobile-is-visible');

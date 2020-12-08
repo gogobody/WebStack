@@ -25,6 +25,7 @@ a {
     --radius-pc:10px;
     --radius-wap:10px;
     --top-m-width:717px;
+    --sidebar-menu-collapsew:80px;
 }
 .bright{
     --background-c:#f1f5f8; /*#f9f9f9*/
@@ -32,7 +33,9 @@ a {
 .night{
     --background-c:#2c2e2f;
 }
-
+.onfixed{
+    position: fixed!important;
+}
 body {
     background-color: var(--background-c);
     font-size: 14px;
@@ -259,10 +262,11 @@ body.night .comment-list li.comment-by-author{
     max-height: 232px;
     position: fixed;
     right: 10px;
-    top: 40%;
     font-size: 14px;
     color: #243558;
-    z-index: 10000
+    z-index: 1099;
+    bottom: 265px;
+
 }
 
 .fk_service ul {
@@ -627,16 +631,6 @@ body.night .comment-list li.comment-by-author{
     border: 1px solid #e1e6ec
 }
 
-.fk_service {
-    max-height: 232px;
-    position: fixed;
-    right: 10px;
-    top: 65%;
-    font-size: 14px;
-    color: #243558;
-    z-index: 10000
-}
-
 .right {
     float: right
 }
@@ -721,13 +715,12 @@ body, html {
 }
 
 .page-container {
-    display: table;
+    display: block;
     width: 100%;
     height: 100%;
-    vertical-align: top;
     border-collapse: collapse;
     border-spacing: 0;
-    table-layout: fixed
+    padding-left: var(--nav-expand-width);
 }
 
 .page-container.container {
@@ -736,12 +729,8 @@ body, html {
 }
 
 .page-container .main-content {
-    margin-top: 30px;
-    display: table-cell;
-    position: relative;
     z-index: 1;
     padding: 30px;
-    vertical-align: top;
     word-break: break-word;
     width: 100%;
     font-size: 14px;
@@ -817,12 +806,20 @@ body, html {
     z-index: 555
 }
 
+
 .sidebar-menu .logo-env {
     padding: 19px 45px;
     border-bottom: 1px solid #313437;
     background-color: var(--color-black);
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--nav-expand-width);
 
+}
+.sidebar-menu.collapsed .logo-env{
+    width: var(--sidebar-menu-collapsew);
+}
 .sidebar-menu .logo-env .logo {
     float: left
 }
@@ -963,6 +960,9 @@ body, html {
     overflow-x: hidden;
     box-shadow: rgba(0,0,0,.2) 0 1px 3px, rgba(157,182,200,.1) 0 1px 20px;
     height: auto;
+    padding-top: var(--nav-hight);
+    background-color: var(--color-black);
+    overscroll-behavior: none;
 }
 .sidebar-menu.fixed .sidebar-menu-inner::-webkit-scrollbar{
     display: none;
@@ -974,9 +974,8 @@ body, html {
 
 @media screen and (min-width: 768px) {
     .sidebar-menu.collapsed {
-        width: 80px;
+        width: var(--sidebar-menu-collapsew);
         z-index: 9999;
-        overflow: visible
     }
 
     .sidebar-menu.collapsed .hidden-collapsed {
@@ -991,9 +990,6 @@ body, html {
         left: 80px
     }
 
-    .sidebar-menu.collapsed .sidebar-menu-inner {
-        overflow: visible
-    }
 
     .sidebar-menu.collapsed .logo-env {
         padding: 18px 0
@@ -1316,26 +1312,30 @@ footer.main-footer.fixed {
 @media screen and (max-width: 768px) {
     .page-container {
         display: block;
+        padding: 0!important;
+        top: var(--nav-hight);
     }
     .page-container .main-content{
         padding: 30px 12px;
     }
-    .page-container .main-content, .page-container .sidebar-menu {
+    .page-container .main-content, .all-layout .sidebar-menu {
         display: block;
         width: 100%;
         height: auto
     }
 
-    .page-container .sidebar-menu {
+    .all-layout .sidebar-menu {
         margin: 20px 0 0 0;
     }
-
-    .page-container .sidebar-menu .sidebar-menu-inner .logo-env, .page-container .sidebar-menu .sidebar-menu-inner .main-menu {
+    .all-layout .sidebar-menu.fixed .sidebar-menu-inner{
+        position: absolute;
+    }
+    .all-layout .sidebar-menu .sidebar-menu-inner .logo-env, .all-layout .sidebar-menu .sidebar-menu-inner .main-menu {
         padding-left: 20px;
         padding-right: 20px
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .logo-env {
+    .all-layout .sidebar-menu .sidebar-menu-inner .logo-env {
         margin-bottom: 0;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -1346,12 +1346,12 @@ footer.main-footer.fixed {
         z-index: 2;
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle {
+    .all-layout .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle {
         float: right;
         margin-top: 10px
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a {
+    .all-layout .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a {
         position: relative;
         display: inline-block;
         color: #979898;
@@ -1359,23 +1359,23 @@ footer.main-footer.fixed {
         margin-left: 20px
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a i {
+    .all-layout .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a i {
         line-height: 1;
         font-size: 18px;
         position: relative;
         top: 1px
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a:active, .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a:focus, .page-container .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a:hover {
+    .all-layout .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a:active, .all-layout .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a:focus, .all-layout .sidebar-menu .sidebar-menu-inner .logo-env .mobile-menu-toggle a:hover {
         color: #fff
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .main-menu {
+    .all-layout .sidebar-menu .sidebar-menu-inner .main-menu {
         display: none;
         margin-bottom: 0;
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .main-menu.mobile-is-visible {
+    .all-layout .sidebar-menu .sidebar-menu-inner .main-menu.mobile-is-visible {
         position: absolute;
         display: block;
         z-index: 0;
@@ -1385,7 +1385,7 @@ footer.main-footer.fixed {
         top: var(--mobile-nav-hight);
     }
 
-    .page-container .sidebar-menu .sidebar-menu-inner .main-menu > li:last-child > a {
+    .all-layout .sidebar-menu .sidebar-menu-inner .main-menu > li:last-child > a {
         border-bottom: 0
     }
 
@@ -2882,9 +2882,6 @@ banner
 @media (max-width: 768px) {
     .all-layout{
         padding-top: 0;
-    }
-    .fixpad{
-        margin-top: 55px;
     }
     .logo_size {
         max-width: 180px

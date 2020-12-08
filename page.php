@@ -7,9 +7,7 @@
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php'); ?>
- <?php $this->need('sidebar.php'); ?>
          <div class="main-content">
-             <?php $this->need('components/nav.php'); ?>
              <div class="">
                 <div class="panel panel-default">
                     <!-- 关于网站 -->

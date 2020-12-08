@@ -1,9 +1,9 @@
 <?php
 /**
- * 基于开源项目<a href="https://github.com/WebStackPage/WebStackPage.github.io" rel="nofollow" target="_blank">WebStack</a>的一个主题，请尊重劳动成果 <ul><li>由<a href="https://bbs.geekscholar.net" rel="nofollow" target="_blank">gogobody</a>二次,内容包括新增顶栏和优化底栏及悬浮窗等N项。</li> <li>适配全新暗黑模式，支持cookie保存。</li><li>设置参数已整合至后台，无需手动修改HTML。</li><li>基于钻芒二开修改</li><ul>
+ * 基于开源项目<a href="https://github.com/WebStackPage/WebStackPage.github.io" rel="nofollow" target="_blank">WebStack</a>的一个主题，请尊重劳动成果 <ul><li>由<a href="https://bbs.geekscholar.net" rel="nofollow" target="_blank">gogobody</a>二次修改。</li> <li>适配全新暗黑模式，支持cookie保存。</li><li>设置参数已整合至后台，无需手动修改HTML。</li><li>基于钻芒二开修改</li><ul>
  *
  * @package WebStack
- * @author gogobody 改自钻芒二开优化版V0.7.19
+ * @author gogobody
  * @version 1.0 gogobody 优化版
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
@@ -16,10 +16,8 @@ $hidecategries = explode("||",$hidecategries);
 $categories = null;
 $this->widget('Widget_Metas_Category_List')->to($categories);
 ?>
-<?php $this->need('sidebar.php'); ?>
 
 <div class="main-content">
-    <div class="fixpad"></div>
     <div class="top-module">
         <?php if ($this->options->isSearch == 1): ?>
             <?php $this->need('search.php'); ?>
