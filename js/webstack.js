@@ -157,7 +157,7 @@ var webStack = {
         $('a[data-toggle="user-info-menu"]').on('click', function (ev) {
             ev.preventDefault();
             public_vars.$userInfoMenu.toggleClass('mobile-is-visible');
-            public_vars.$sidebarInner.toggleClass('onfixed')
+            public_vars.$sidebarInner.removeClass('onfixed')
             if (public_vars.$mainMenu.hasClass('mobile-is-visible')){
                 public_vars.$mainMenu.toggleClass('mobile-is-visible');
             }

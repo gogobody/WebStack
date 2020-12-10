@@ -297,7 +297,13 @@ function themeFields($layout) {
     $url = new Typecho_Widget_Helper_Form_Element_Text('url', NULL, NULL, _t('跳转链接'), _t('请输入跳转URL'));
     $text = new Typecho_Widget_Helper_Form_Element_Text('text', NULL, NULL, _t('链接描述'), _t('请输入链接描述'));
     $logo = new Typecho_Widget_Helper_Form_Element_Text('logo', NULL, NULL, _t('链接logo'), _t('请输入Logo URL链接'));
+    $url->setAttribute("data","link-item");
+    $text->setAttribute("class","link-item");
+    $logo->setAttribute("class","link-item");
+    $url->setTagName("span");
     $layout->addItem($url);
     $layout->addItem($text);
     $layout->addItem($logo);
+    $layout->setAttribute("class","link-item");
+
 }

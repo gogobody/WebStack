@@ -16,7 +16,7 @@ a {
 }
 :root{
     --nav-index:1024;
-    --nav-expand-width:260px;
+    --nav-expand-width:180px;
     --nav-narrow-width:80px;
     --nav-hight:75px;
     --color-black:#2c2e2f;
@@ -26,6 +26,8 @@ a {
     --radius-wap:10px;
     --top-m-width:717px;
     --sidebar-menu-collapsew:80px;
+    --animate-duration: 800ms;
+    --animate-delay: 0.9s;
 }
 .bright{
     --background-c:#f1f5f8; /*#f9f9f9*/
@@ -808,7 +810,7 @@ body, html {
 
 
 .sidebar-menu .logo-env {
-    padding: 19px 45px;
+    padding: 19px;
     border-bottom: 1px solid #313437;
     background-color: var(--color-black);
     position: fixed;
@@ -835,9 +837,11 @@ body, html {
     background-color: var(--color-black);
     margin-bottom: 0;
     height: fit-content;
+    animation: fadeIn;
+    animation-duration: 800ms;
 }
 .sidebar-menu .main-menu > li{
-    padding: 0 40px;
+    padding: 0 10px 0 20px;
 }
 .sidebar-menu.collapsed .main-menu > li{
     padding: 0;
