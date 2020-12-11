@@ -22,6 +22,7 @@ public_vars.$horizontalMenu = public_vars.$horizontalNavbar.find('.navbar-nav');
 
 public_vars.$mainContent = public_vars.$pageContainer.find('.main-content');
 public_vars.$userInfoMenu = public_vars.$body.find('nav.navbar.user-info-navbar');
+public_vars.$navbar = document.querySelector("nav.navbar")
 /**
  * main func
  * @type {{init: webStack.init, nightModeInit: webStack.nightModeInit}}
@@ -91,10 +92,18 @@ var webStack = {
         });
     },
     resizeNavBar:function(){
-        var navbar = document.querySelector("nav.navbar")
-        var leftw = document.querySelector("div.sidebar-menu.toggle-others.fixed").offsetWidth+"px"
-        navbar.style.left = leftw
-        public_vars.$pageContainer[0].style.paddingLeft = leftw
+        var navbar = public_vars.$navbar
+        var sidebar_menu = $(".sidebar-menu")
+        if (sidebar_menu.hasClass("collapsed")){
+            navbar.classList.add("nav-collapsed")
+            public_vars.$pageContainer[0].classList.add("nav-collapsed")
+        }else {
+            navbar.classList.remove("nav-collapsed")
+            public_vars.$pageContainer[0].classList.remove("nav-collapsed")
+        }
+        // var leftw = document.querySelector("div.sidebar-menu.toggle-others.fixed").offsetWidth+"px"
+        // navbar.style.left = leftw
+        // public_vars.$pageContainer[0].style.paddingLeft = leftw
     },
     toggleBarInit: function () {
         // toggle
