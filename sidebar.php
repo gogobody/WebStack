@@ -40,11 +40,11 @@ if (!$categories or !$hidecategries){
                 <?php if ($categories->levels === 0): ?>
                     <?php $children = $categories->getAllChildren($categories->mid); ?>
                     <?php if (empty($children)) { ?>
-                        <li>
+                        <li class="animate__animated animate__fadeInLeft">
                             <a href="<?php echo '#'.$categories->name; ?>"
                                class="smooth">
                                 <i class="fa fa-<?php $categories->slug(); ?>"></i>
-                                <span class="title"><?php $categories->name(); ?></span>
+                                <span class="title animate__animated animate__fadeInLeft"><?php $categories->name(); ?></span>
                             </a>
                         </li>
                     <?php } else { ?>

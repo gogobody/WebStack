@@ -34,6 +34,10 @@ a {
 .night{
     --background-c:#2c2e2f;
 }
+@keyframes hideopac{
+    0%{ opacity: 0; transform: translate(800px, 0) }
+    100%{opacity: 1; transform: translate(0, 0) }
+}
 .onfixed{
     position: fixed!important;
 }
@@ -874,11 +878,15 @@ body, html {
 }
 
 .sidebar-menu .main-menu a > i + span {
-    padding-right: 10px
+    padding-right: 10px;
+
 }
 
 .sidebar-menu .main-menu a > span {
-    display: inline-block
+    display: inline-block;
+    transition: hideopac 0.3s;
+    -moz-animation: hideopac 0.3s;
+    -webkit-animation: hideopac 0.3s;
 }
 
 .sidebar-menu .main-menu a > .label {

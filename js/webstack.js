@@ -5,7 +5,7 @@ console.log(' %c Theme WebStack %c https://github.com/gogobody/WebStack', 'color
  */
 // Sidebar Toggle
 var public_vars = public_vars || {};
-
+public_vars.variable = public_vars.variable || {}
 // Sideber Menu Setup function
 var sm_duration = .2,
     sm_transition_delay = 150;
@@ -23,22 +23,30 @@ public_vars.$horizontalMenu = public_vars.$horizontalNavbar.find('.navbar-nav');
 public_vars.$mainContent = public_vars.$pageContainer.find('.main-content');
 public_vars.$userInfoMenu = public_vars.$body.find('nav.navbar.user-info-navbar');
 public_vars.$navbar = document.querySelector("nav.navbar")
+
+public_vars.variable.weather = "<iframe allowtransparency=\"true\" id=\"previewIframe\" frameborder=\"0\" width=\"236\" height=\"18\" scrolling=\"no\" src=\"//tianqi.2345.com/plugin/widget/index.htm?debug=true&amp;s=3&amp;z=1&amp;t=1&amp;v=0&amp;d=1&amp;bd=0&amp;k=&amp;f=808080&amp;ltf=009944&amp;htf=ff8000&amp;q=1&amp;e=1&amp;a=1&amp;c=54511&amp;w=244&amp;h=18&amp;align=center\"></iframe>";
 /**
  * main func
  * @type {{init: webStack.init, nightModeInit: webStack.nightModeInit}}
  */
 var webStack = {
     init: function () {
+        this.windowSize = $(window).width()
         this.siteEventInit()
         this.resetStyle()
         this.toggleBarInit()
+        this.weatherInit()
     },
     resetStyle:function(){
-        var width = $(window).width()
-        if (768 < width && width < 987){
+        if (768 < this.windowSize && this.windowSize < 987){
             $(".sidebar-menu.toggle-others").addClass("collapsed")
         }
         this.resizeNavBar()
+    },
+    weatherInit:function(){
+        if (768 < this.windowSize){
+            $("li.weather a").append(public_vars.variable.weather)
+        }
     },
     nightModeInit: function () {
         if (document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {
