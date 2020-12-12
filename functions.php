@@ -96,7 +96,7 @@ function themeConfig($form) {
     $form->addInput($JLazyLoad);
 
     // 大logo
-    $Biglogo = new Typecho_Widget_Helper_Form_Element_Text('Biglogo', NULL, '/usr/themes/WebStack/images/logo@2x.png', _t('大LOGO地址'), _t('大logo地址，尺寸178*40'));
+    $Biglogo = new Typecho_Widget_Helper_Form_Element_Text('Biglogo', NULL, '/usr/themes/WebStack/images/logo.png', _t('大LOGO地址'), _t('大logo地址，尺寸178*40'));
     $Biglogo->setAttribute('class', 'j-setting-content j-setting-image');
     $form->addInput($Biglogo);
 
@@ -291,19 +291,39 @@ function themeConfig($form) {
     $hidecategories = new Typecho_Widget_Helper_Form_Element_Text('hidecategories', NULL, null, _t('隐藏分类'), _t('隐藏某些分类，分类 mid 用||分割，比如 1||2||3'));
     $hidecategories->setAttribute('class', 'j-setting-content j-setting-other');
     $form->addInput($hidecategories);
+
+    $use_explore = new Typecho_Widget_Helper_Form_Element_Radio('use_explore', array(0 => _t('禁用'), 1 => _t('启用')), 1, _t('是否开启主页的探索发现功能'), _t("是否开启主页的探索发现功能"));
+    $use_explore->setAttribute('class', 'j-setting-content j-setting-other');
+    $form->addInput($use_explore);
+
+    $explore_categories = new Typecho_Widget_Helper_Form_Element_Text('explore_categories', NULL, null, _t('主页探索发现分类'), _t('主页探索发现显示的分类，分类 mid 用||分割，比如 1||2||3'));
+    $explore_categories->setAttribute('class', 'j-setting-content j-setting-other');
+    $form->addInput($explore_categories);
 }
 //输出导航
 function themeFields($layout) {
     $url = new Typecho_Widget_Helper_Form_Element_Text('url', NULL, NULL, _t('跳转链接'), _t('请输入跳转URL'));
     $text = new Typecho_Widget_Helper_Form_Element_Text('text', NULL, NULL, _t('链接描述'), _t('请输入链接描述'));
     $logo = new Typecho_Widget_Helper_Form_Element_Text('logo', NULL, NULL, _t('链接logo'), _t('请输入Logo URL链接'));
-    $url->setAttribute("data","link-item");
-    $text->setAttribute("class","link-item");
-    $logo->setAttribute("class","link-item");
-    $url->setTagName("span");
+    // 首页探索发现
+    $pic1 = new Typecho_Widget_Helper_Form_Element_Text('pic1', NULL, NULL, _t('附图1'), _t('请输入图片链接'));
+    $pic2 = new Typecho_Widget_Helper_Form_Element_Text('pic2', NULL, NULL, _t('附图2'), _t('请输入图片链接'));
+    $pic3 = new Typecho_Widget_Helper_Form_Element_Text('pic3', NULL, NULL, _t('附图3'), _t('请输入图片链接'));
+    $relatedSites = new Typecho_Widget_Helper_Form_Element_Text(
+        'relatedSites',
+        NULL,
+        NULL,
+        '推荐网址（非必填，最多填写3个！）',
+        '介绍：用于与文章相关联的网址，最多填写三个 。填写导航链接对应的mid，用 || 分隔<br/>
+         格式：1||2||3<br />
+         '
+    );
+
     $layout->addItem($url);
     $layout->addItem($text);
     $layout->addItem($logo);
-    $layout->setAttribute("class","link-item");
-
+    $layout->addItem($pic1);
+    $layout->addItem($pic2);
+    $layout->addItem($pic3);
+    $layout->addItem($relatedSites);
 }

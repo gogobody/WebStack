@@ -60,7 +60,7 @@
 <body class="page-body <?php echo($_COOKIE['night'] == 1 ? 'night' : 'bright'); ?>">
 <div class="all-layout">
     <?php $this->need('components/nav.php');?>
-    <?php $this->need('sidebar.php'); ?>
+    <?php $this->need('components/sidebar.php'); ?>
 
     <!-- skin-white -->
 <div class="page-container">

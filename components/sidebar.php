@@ -1,10 +1,20 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-global $categories,$hidecategries;
+global $categories,$hidecategries,$explore_categories;
 if (!$categories or !$hidecategries){
+    // 合并两个分类
     $hidecategries = $this->options->hidecategories;
     $hidecategries = str_replace(" ", "", $hidecategries);
     $hidecategries = explode("||",$hidecategries);
+    // 主页探索发现
+    $explore_categories = $this->options->explore_categories;
+    $explore_categories = str_replace(" ", "", $explore_categories);
+    $explore_categories = explode("||",$explore_categories);
+    if (!empty($explore_categories and !empty($hidecategries)))
+        $hidecategries = array_merge($hidecategries,$explore_categories);
+    elseif (!empty($explore_categories))
+        $hidecategries = $explore_categories;
+
     $categories = null;
     $this->widget('Widget_Metas_Category_List')->to($categories);
 }

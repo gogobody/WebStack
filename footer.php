@@ -77,7 +77,7 @@ $this->need('components/floatBar.php')
 </div>
 <?php $nowpage = null;
 if ($this->is('index')) $nowpage = 'index'; else $nowpage = 'page';
-echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";</script>' ?>
+echo '<script>npage="' . $nowpage . '";siteUrl="'.$this->options->siteUrl.'";gindex="'.$this->options->index.'"</script>' ?>
 <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/1.1.3/lazysizes.min.js" async=""></script>
 <!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>-->
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

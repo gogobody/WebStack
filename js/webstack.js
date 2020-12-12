@@ -1,5 +1,49 @@
 console.log(' %c Theme WebStack %c https://github.com/gogobody/WebStack', 'color:#444;background:#eee;padding:5px 0', 'color:#eee;background:#444;padding:5px');
-
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    // add message function
+    $.extend({
+        message: function (a) {
+            var b = {
+                title: "",
+                message: " 操作成功",
+                time: "3000",
+                type: "success",
+                showClose: true,
+                autoClose: true,
+                onClose: function () {
+                }
+            };
+            "string" == typeof a && (b.message = a), "object" == typeof a && (b = $.extend({}, b, a));
+            var c, d, e, f = b.showClose ? '<div class="c-message--close">×</div>' : "",
+                g = "" !== b.title ? '<h2 class="c-message__title">' + b.title + "</h2>" : "",
+                h = '<div class="c-message animated animate__slideInRight"><i class=" c-message--icon c-message--' + b.type + '"></i><div class="el-notification__group">' + g + '<div class="el-notification__content">' + b.message + "</div>" + f + "</div></div>",
+                i = $("body"), j = $(h);
+            d = function () {
+                j.addClass("animate__slideOutRight")
+                j.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
+                    e()
+                })
+            }
+            e = function () {
+                j.remove()
+                b.onClose(b)
+                clearTimeout(c)
+            }
+            $(".c-message").remove()
+            i.append(j)
+            j.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
+                j.removeClass("messageFadeInDown")
+            })
+            i.on("click", ".c-message--close", function (a) {
+                d()
+            })
+            b.autoClose && (c = setTimeout(function () {
+                d()
+            }, b.time))
+        }
+    });
+})
 /**
  * gloabl vars
  */
@@ -25,6 +69,7 @@ public_vars.$userInfoMenu = public_vars.$body.find('nav.navbar.user-info-navbar'
 public_vars.$navbar = document.querySelector("nav.navbar")
 
 public_vars.variable.weather = "<iframe allowtransparency=\"true\" id=\"previewIframe\" frameborder=\"0\" width=\"236\" height=\"18\" scrolling=\"no\" src=\"//tianqi.2345.com/plugin/widget/index.htm?debug=true&amp;s=3&amp;z=1&amp;t=1&amp;v=0&amp;d=1&amp;bd=0&amp;k=&amp;f=808080&amp;ltf=009944&amp;htf=ff8000&amp;q=1&amp;e=1&amp;a=1&amp;c=54511&amp;w=244&amp;h=18&amp;align=center\"></iframe>";
+public_vars.variable.action = gindex+"/action/webstack-action"
 /**
  * main func
  * @type {{init: webStack.init, nightModeInit: webStack.nightModeInit}}
@@ -36,6 +81,7 @@ var webStack = {
         this.resetStyle()
         this.toggleBarInit()
         this.weatherInit()
+        this.exploreInit()
     },
     resetStyle:function(){
         if (768 < this.windowSize && this.windowSize < 987){
@@ -180,6 +226,32 @@ var webStack = {
             }
             // ps_destroy();
         });
+    },
+    exploreInit:function (){
+        $(".explore-content .tabs a").each(function (i,el) {
+            var ele = $(el)
+            console.log(ele)
+            ele.click(function (e) {
+                ele.siblings().removeClass("active")
+                ele.addClass("active")
+                ele.append('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
+                var mid = ele.data("mid")
+                $.post(public_vars.variable.action,{
+                    type:"posts",
+                    mid:mid
+                },function (res) {
+                    if(res.status){
+                        if (res.data.length > 0 ){
+
+                        }
+
+                    }else {
+
+                    }
+                    ele.remove($('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>'))
+                })
+            })
+        })
     }
 }
 
@@ -470,48 +542,6 @@ function get_current_breakpoint() {
 function is(screen_label) {
     return get_current_breakpoint() === screen_label;
 }
-
-//
-// function ps_init() {
-//     if (isxs())
-//         return;
-//
-//     if (jQuery.isFunction(jQuery.fn.perfectScrollbar)) {
-//         if (public_vars.$sidebarMenu.hasClass('collapsed') || !public_vars.$sidebarMenu.hasClass('fixed')) {
-//             return;
-//         }
-//
-//         public_vars.$sidebarMenu.find('.sidebar-menu-inner').perfectScrollbar({
-//             wheelSpeed: 1,
-//             wheelPropagation: public_vars.wheelPropagation
-//         });
-//     }
-// }
-//
-// function ps_destroy() {
-//     if (jQuery.isFunction(jQuery.fn.perfectScrollbar)) {
-//         public_vars.$sidebarMenu.find('.sidebar-menu-inner').perfectScrollbar('destroy');
-//     }
-// }
-//
-// // Perfect scroll bar functions by Arlind Nushi
-// function ps_update(destroy_init) {
-//     if (isxs())
-//         return;
-//
-//     if (jQuery.isFunction(jQuery.fn.perfectScrollbar)) {
-//         if (public_vars.$sidebarMenu.hasClass('collapsed')) {
-//             return;
-//         }
-//
-//         public_vars.$sidebarMenu.find('.sidebar-menu-inner').perfectScrollbar('update');
-//
-//         if (destroy_init) {
-//             ps_destroy();
-//             ps_init();
-//         }
-//     }
-// }
 
 function sidebar_menu_item_collapse($li, $sub) {
     if ($li.data('is-busy'))

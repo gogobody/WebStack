@@ -9,12 +9,8 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 $this->need('header.php');
-global $categories,$hidecategries;
-$hidecategries = $this->options->hidecategories;
-$hidecategries = str_replace(" ", "", $hidecategries);
-$hidecategries = explode("||",$hidecategries);
-$categories = null;
-$this->widget('Widget_Metas_Category_List')->to($categories);
+global $categories,$hidecategries,$explore_categories; // in sidebar.php
+
 ?>
 
 <div class="main-content">
@@ -54,10 +50,11 @@ $this->widget('Widget_Metas_Category_List')->to($categories);
 
     </div>
 
-
     <?php $this->need('components/index.banner.php'); ?>
+    <?php if ($this->options->use_explore) $this->need('components/explore.php'); ?>
 
     <?php while ($categories->next()):
+
         if ($hidecategries and (in_array($categories->mid,$hidecategries) or ($categories->parent and in_array($categories->parent,$hidecategries)))){continue;}
         ?>
         <?php if (count($categories->children) === 0): ?>
