@@ -51,6 +51,7 @@ global $categories,$hidecategries,$explore_categories; // in sidebar.php
     </div>
 
     <?php $this->need('components/index.banner.php'); ?>
+
     <?php if ($this->options->use_explore) $this->need('components/explore.php'); ?>
 
     <?php while ($categories->next()):

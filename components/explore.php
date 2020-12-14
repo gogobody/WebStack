@@ -22,7 +22,7 @@ $categs = $this->widget("Widget_Metas_Category_List")->getCategories($explore_ca
                     <div class="expolre-detail">
                         <div class="detail-publish-time">
                             <div class="time">
-                                <img src="http://ilxdh.com/images/adminAvatar.png">
+                                <img src="<?php $this->options->themeUrl('images/adminAvatar.png')?>">
                                 <div class="time-detail">
                                     <?php _e(date('Y-m-d G:i', $posts->created));?>
                                 </div>
