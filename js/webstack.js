@@ -1,6 +1,16 @@
 console.log(' %c Theme WebStack %c https://github.com/gogobody/WebStack', 'color:#444;background:#eee;padding:5px 0', 'color:#eee;background:#444;padding:5px');
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    //字符串格式化
+    String.prototype.format = function () {
+        var values = arguments;
+        return this.replace(/\{(\d+)\}/g, function (match, index) {
+            if (values.length > index) {
+                return values[index];
+            } else {
+                return "";
+            }
+        });
+    };
     // add message function
     $.extend({
         message: function (a) {
@@ -67,9 +77,14 @@ public_vars.$horizontalMenu = public_vars.$horizontalNavbar.find('.navbar-nav');
 public_vars.$mainContent = public_vars.$pageContainer.find('.main-content');
 public_vars.$userInfoMenu = public_vars.$body.find('nav.navbar.user-info-navbar');
 public_vars.$navbar = document.querySelector("nav.navbar")
+// jquery ele
+public_vars.$explore_content = $(".explore-content .details")
+public_vars.$explore_loadBtn = $(".explore-container .explore-content .loadmore button")
 
 public_vars.variable.weather = "<iframe allowtransparency=\"true\" id=\"previewIframe\" frameborder=\"0\" width=\"236\" height=\"18\" scrolling=\"no\" src=\"//tianqi.2345.com/plugin/widget/index.htm?debug=true&amp;s=3&amp;z=1&amp;t=1&amp;v=0&amp;d=1&amp;bd=0&amp;k=&amp;f=808080&amp;ltf=009944&amp;htf=ff8000&amp;q=1&amp;e=1&amp;a=1&amp;c=54511&amp;w=244&amp;h=18&amp;align=center\"></iframe>";
 public_vars.variable.action = gindex+"/action/webstack-action"
+public_vars.variable.explore_page = 0
+public_vars.variable.explore_pagesize = 5
 /**
  * main func
  * @type {{init: webStack.init, nightModeInit: webStack.nightModeInit}}
@@ -82,6 +97,7 @@ var webStack = {
         this.toggleBarInit()
         this.weatherInit()
         this.exploreInit()
+        this.loadmoreInit()
     },
     resetStyle:function(){
         if (768 < this.windowSize && this.windowSize < 987){
@@ -227,29 +243,85 @@ var webStack = {
             // ps_destroy();
         });
     },
+    loadArticles: function(mid,page,pagesize,callback){
+        var explore_content = public_vars.$explore_content
+        $.post(public_vars.variable.action,{
+            type:"posts",
+            mid:mid,
+            page:page?page:1,
+            size:pagesize?pagesize:1
+        },function (res) {
+            if(res.status){
+                if (res.data.length > 0 ){
+                    var len = pagesize === 1 ? 1:res.data.length
+                    for (var j = 0;j < len; j++){
+                        var dataOne =  res.data[j]
+                        var date = utils.timeStamp2Date(dataOne.create)
+                        var imgs = ''
+                        var loading = siteUrl + 'usr/themes/WebStack/images/loading.gif'
+                        for (var i = 0; i < dataOne.pics.length;i++){
+                            if (dataOne.pics[i]){
+                                imgs = imgs + '<div class="el-image"><img src="{0}" data-src="{1}" class="lazyload"></div>'.format(loading,dataOne.pics[i])
+                            }
+                        }
+                        var exploreSites = ''
+                        for (var key in dataOne.relatedSites){
+                            exploreSites = exploreSites + '<div class="explore-sites"><a href="{0}" target="_blank" class="site"><div class="el-image"><img src="{1}" data-src="{2}" class="el-image__inner lazyload"></div><span class="el-tooltip name text-ellip">{3}</span></a><div class="divide"></div><p class="site-describe text-ellip">{4}</p><span class="add-to-diy"><i class="fa fa-plus-circle" aria-hidden="true"></i> </span></div>'
+                                .format(dataOne.relatedSites[key]['url'],loading,dataOne.relatedSites[key]['logo'],dataOne.relatedSites[key]['title'],dataOne.relatedSites[key]['text'])
+                        }
+                        var html = '<div class="explore-item"><div class="expolre-detail"><div class="detail-publish-time"><div class="time"><img src="http://ilxdh.com/images/adminAvatar.png"><div class="time-detail">{0}</div></div><div class="category"><span>网站推荐</span></div></div><div class="detail-content">{1}</div><div class="explore-images">{2}</div><div class="explore-sites-container">{3}</div>'
+                            .format(date,dataOne.text,imgs,exploreSites)
+                        if (len === 1){
+                            explore_content.empty()
+                        }
+                        explore_content.append(html)
+                    }
+                    public_vars.variable.explore_page = page
+                }else {
+                    explore_content.append('<div class="explore-item"><div class="expolre-detail"><div>没有更多内容~</div></div></div>')
+                    public_vars.$explore_loadBtn.attr("disabled",true)
+                    public_vars.$explore_loadBtn.text("没有更多")
+                }
+
+            }else {
+                $.message({
+                    title:"错误",
+                    message:res,
+                    type:"error"
+                })
+                console.log(res)
+            }
+            (callback && typeof(callback) === "function") && callback()
+        })
+    },
     exploreInit:function (){
         $(".explore-content .tabs a").each(function (i,el) {
             var ele = $(el)
-            console.log(ele)
             ele.click(function (e) {
+                var explore_content = public_vars.$explore_content
+                public_vars.$explore_loadBtn.attr("disabled",false)
+                public_vars.$explore_loadBtn.text("加载更多")
+                explore_content.empty()
                 ele.siblings().removeClass("active")
                 ele.addClass("active")
                 ele.append('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
                 var mid = ele.data("mid")
-                $.post(public_vars.variable.action,{
-                    type:"posts",
-                    mid:mid
-                },function (res) {
-                    if(res.status){
-                        if (res.data.length > 0 ){
-
-                        }
-
-                    }else {
-
-                    }
-                    ele.remove($('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>'))
+                webStack.loadArticles(mid,1,1,function () {
+                    $('.tabs a i.fa.fa-spinner.fa-spin').remove()
+                    public_vars.variable.explore_page = 0
                 })
+            })
+        })
+    },
+    loadmoreInit:function (){
+        var loadBtn = public_vars.$explore_loadBtn
+        loadBtn.click(function (e) {
+            var tabs_active = $(".explore-container .explore-content .tabs a.active")
+            if (!tabs_active) return
+            var mid = tabs_active.data("mid")
+            var page = public_vars.variable.explore_page + 1
+            page = page ? page:1
+            webStack.loadArticles(mid,page,public_vars.variable.explore_pagesize,function () {
             })
         })
     }
@@ -486,7 +558,25 @@ var searchWidget = {
         })
     }
 }
-
+var utils = {
+    timeStamp2Date:function(date_) {
+        if(typeof date_ == "string"){
+            if (date_.length < 13){
+                date_ = parseInt(date_) * 1000
+            }else {
+                date_ = parseInt(date_)
+            }
+        }
+        var date = new Date(date_);
+        var YY = date.getFullYear() + '-';
+        var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var DD = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+        var hh = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+        var mm = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
+        // var ss = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+        return YY + MM + DD +" "+hh + mm;
+}
+}
 
 var WebStackInit = function () {
     $('[data-toggle="tooltip"]').tooltip();

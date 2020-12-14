@@ -81,14 +81,15 @@ $categs = $this->widget("Widget_Metas_Category_List")->getCategories($explore_ca
 
             <?php endif;?>
         </div>
+        <div class="loadmore"><button>加载更多</button></div>
     </div>
     <div class="explore-side">
         <div class="to-login">
-            <a href="javascript:;">
+            <a href="<?php $this->options->loginUrl()?>">
                 <img src="<?php $this->options->themeUrl('images/login.png')?>" alt="登录">
                 <p>登录/注册</p>
             </a>
-            <a class="register" title="自定义网站" href="javascript:;">
+            <a class="register" title="自定义网站" href="javascript:$.message({title:'通知',message:'开发中',type:'success'});">
                 <img src="<?php $this->options->themeUrl('images/diysite.png')?>" alt="注册">
                 <p>自定义网站</p>
             </a>
@@ -99,12 +100,19 @@ $categs = $this->widget("Widget_Metas_Category_List")->getCategories($explore_ca
                 <p class="title">热门网站</p>
             </div>
             <div class="rec-content">
-                <a href="https://mmbizurl.cn/s/pFCWy1gGb" class="text-ellip" target="_blank">9.9包邮</a>
-                <a href="https://www.bilibili.com/ranking" target="_blank" rel="noopener" class="text-ellip">B站</a>
+                <?php
+                $sites_arr = explode("\r\n", $this->options->explore_hot_sites);
+                $long = count($sites_arr);
+                for ($j = 0; $j < $long; $j++):
+                    $url = trim(explode("||", $sites_arr[$j])[0]);
+                    $name = trim(explode("||", $sites_arr[$j])[1]);
+                ?>
+                <a href="<?php _e($url);?>" target="_blank" rel="noopener" class="text-ellip"><?php _e($name);?></a>
+                <?php endfor;?>
             </div>
         </div>
         <div class="explore-side-banner">
-            <a href="#" target="_blank" rel="noopener">
+            <a href="<?php $this->options->explore_help_href()?>" target="_blank" rel="noopener">
                 <img class="lazyload img-fluid" src="<?php $this->options->themeUrl('images/loading.gif')?>" data-src="<?php $this->options->themeUrl('images/help.jpg')?>" alt="导航使用技巧">
             </a>
         </div>

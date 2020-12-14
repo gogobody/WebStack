@@ -299,7 +299,29 @@ function themeConfig($form) {
     $explore_categories = new Typecho_Widget_Helper_Form_Element_Text('explore_categories', NULL, null, _t('主页探索发现分类'), _t('主页探索发现显示的分类，分类 mid 用||分割，比如 1||2||3'));
     $explore_categories->setAttribute('class', 'j-setting-content j-setting-other');
     $form->addInput($explore_categories);
+
+    $explore_help_href = new Typecho_Widget_Helper_Form_Element_Text('explore_help_href', NULL, "https://bbs.geekscholar.net/d/35-webstack", _t('探索发现右侧帮助跳转链接'), _t('探索发现右侧帮助图片点击后的跳转链接'));
+    $explore_help_href->setAttribute('class', 'j-setting-content j-setting-other');
+    $form->addInput($explore_help_href);
+
+    $explore_hot_sites = new Typecho_Widget_Helper_Form_Element_Textarea(
+        'explore_hot_sites',
+        NULL,
+        "https://www.bilibili.com/ranking||B站",
+        '探索发现热门网址',
+        '介绍：用于显示探索发现热门的网址，请务必填写正确的格式 <br />
+         格式：跳转链接||标题 （中间使用两个竖杠分隔）<br />
+         其他：一行一个 <br />
+         例如：<br />
+            http://baidu.com||百度一下 <br />
+            http://v.qq.com||腾讯视频
+         '
+    );
+    $explore_hot_sites->setAttribute('class', 'j-setting-content j-setting-other');
+    $form->addInput($explore_hot_sites);
 }
+
+
 //输出导航
 function themeFields($layout) {
     $url = new Typecho_Widget_Helper_Form_Element_Text('url', NULL, NULL, _t('跳转链接'), _t('请输入跳转URL'));
