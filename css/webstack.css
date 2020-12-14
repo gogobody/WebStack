@@ -398,6 +398,9 @@ li {
     padding: 0 10px;
     padding-right: 20px;
 }
+.explore-container .explore-content .details .explore-item .expolre-detail .explore-sites-container .explore-sites .site:hover .name{
+    color: #2777ff;
+}
 .explore-container .explore-content .details .explore-item .expolre-detail .explore-sites-container .explore-sites .site .el-image{
     width: 16px;
     height: 16px;

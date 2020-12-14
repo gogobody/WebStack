@@ -262,16 +262,18 @@ var webStack = {
                         for (var i = 0; i < dataOne.pics.length;i++){
                             if (dataOne.pics[i]){
                                 imgs = imgs + '<div class="el-image"><img src="{0}" data-src="{1}" class="lazyload"></div>'.format(loading,dataOne.pics[i])
+                            }else{
+                                imgs = imgs + '<div class="el-image"></div>'
                             }
                         }
                         var exploreSites = ''
-                        for (var key in dataOne.relatedSites){
+                        for (var k=0;k<dataOne.relatedSites.length;k++){
                             exploreSites = exploreSites + '<div class="explore-sites"><a href="{0}" target="_blank" class="site"><div class="el-image"><img src="{1}" data-src="{2}" class="el-image__inner lazyload"></div><span class="el-tooltip name text-ellip">{3}</span></a><div class="divide"></div><p class="site-describe text-ellip">{4}</p><span class="add-to-diy"><i class="fa fa-plus-circle" aria-hidden="true"></i> </span></div>'
-                                .format(dataOne.relatedSites[key]['url'],loading,dataOne.relatedSites[key]['logo'],dataOne.relatedSites[key]['title'],dataOne.relatedSites[key]['text'])
+                                .format(dataOne.relatedSites[k][2],loading,dataOne.relatedSites[k][0],dataOne.relatedSites[k][1],dataOne.relatedSites[k][3])
                         }
                         var html = '<div class="explore-item"><div class="expolre-detail"><div class="detail-publish-time"><div class="time"><img src="http://ilxdh.com/images/adminAvatar.png"><div class="time-detail">{0}</div></div><div class="category"><span>网站推荐</span></div></div><div class="detail-content">{1}</div><div class="explore-images">{2}</div><div class="explore-sites-container">{3}</div>'
                             .format(date,dataOne.text,imgs,exploreSites)
-                        if (len === 1){
+                        if (len === 1 || page === 1){
                             explore_content.empty()
                         }
                         explore_content.append(html)

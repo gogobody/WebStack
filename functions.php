@@ -331,13 +331,13 @@ function themeFields($layout) {
     $pic1 = new Typecho_Widget_Helper_Form_Element_Text('pic1', NULL, NULL, _t('附图1'), _t('请输入图片链接'));
     $pic2 = new Typecho_Widget_Helper_Form_Element_Text('pic2', NULL, NULL, _t('附图2'), _t('请输入图片链接'));
     $pic3 = new Typecho_Widget_Helper_Form_Element_Text('pic3', NULL, NULL, _t('附图3'), _t('请输入图片链接'));
-    $relatedSites = new Typecho_Widget_Helper_Form_Element_Text(
+    $relatedSites = new Typecho_Widget_Helper_Form_Element_Textarea(
         'relatedSites',
         NULL,
         NULL,
         '推荐网址（非必填，最多填写3个！）',
-        '介绍：用于与文章相关联的网址，最多填写三个 。填写导航链接对应的mid，用 || 分隔<br/>
-         格式：1||2||3<br />
+        '介绍：用于与文章相关联的网址, 一行一个 。<br/>导航logo||标题||跳转链接||文字说明  ,用 || 分隔<br/>
+         格式：https://www.baidu.com/favicon.ico||我是标题||https://www.baidu.com||我是百度<br />
          '
     );
 
