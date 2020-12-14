@@ -38,17 +38,23 @@ $categs = $this->widget("Widget_Metas_Category_List")->getCategories($explore_ca
                         <div class="explore-images">
                             <div class="el-image">
                                 <?php if ($posts->fields->pic1):?>
+                                <a data-lightbox="<?php _e("pic1");?>" href="<?php echo $posts->fields->pic1 ?>">
                                     <img src="<?php $this->options->themeUrl('images/loading.gif')?>" data-src="<?php echo $posts->fields->pic1 ?>" class="lazyload">
+                                </a>
                                 <?php endif; ?>
                             </div>
                             <div class="el-image">
                                 <?php if ($posts->fields->pic2):?>
+                                <a data-lightbox="<?php _e("pic1");?>" href="<?php echo $posts->fields->pic1 ?>">
                                     <img src="<?php $this->options->themeUrl('images/loading.gif')?>" data-src="<?php echo $posts->fields->pic2 ?>" class="lazyload">
+                                </a>
                                 <?php endif; ?>
                             </div>
                             <div class="el-image">
                                 <?php if ($posts->fields->pic3):?>
+                                <a data-lightbox="<?php _e("pic1");?>" href="<?php echo $posts->fields->pic1 ?>">
                                     <img src="<?php $this->options->themeUrl('images/loading.gif')?>" data-src="<?php echo $posts->fields->pic3 ?>" class="lazyload">
+                                </a>
                                 <?php endif; ?>
                             </div>
 
