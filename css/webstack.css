@@ -628,6 +628,9 @@ li {
     .explore-container .explore-side .explore-side-banner{
         display: none;
     }
+    .explore-container .explore-content{
+        padding: 10px;
+    }
 }
 /**
 night mode
