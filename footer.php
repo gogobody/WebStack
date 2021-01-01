@@ -44,9 +44,10 @@ $this->need('components/floatBar.php')
                     var s = document.getElementsByTagName("script")[0];
                     s.parentNode.insertBefore(bp, s);
                 })();
-                <?php if($this->options->one_time_no == 1): ?>
+
             </script>
-            站点已稳定运行：<SPAN id=span_dt_dt style="color: #2F889A;"></SPAN>
+            <?php if($this->options->one_time_no == 1): ?>
+            站点已稳定运行：<span id=span_dt_dt style="color: #2F889A;"></span>
             <script>
                 function show_date_time() {
                     window.setTimeout("show_date_time()", 1000);
