@@ -2,7 +2,7 @@
 WebStack for typecho 导航主题
 
 ## demo
-[即刻学术导航](https://www.geekscholar.net)
+[即刻学术导航](https://site.geekscholar.net)
 
 ## 
 基于WebStack.cc 开发， 支持 typecho ，无需改动源码  
