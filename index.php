@@ -1,6 +1,6 @@
 <?php
 /**
- * 基于开源项目<a href="https://github.com/WebStackPage/WebStackPage.github.io" rel="nofollow" target="_blank">WebStack</a>的一个主题，请尊重劳动成果 <ul><li>由<a href="https://bbs.geekscholar.net" rel="nofollow" target="_blank">gogobody</a>二次修改。</li> <li>适配全新暗黑模式，支持cookie保存。</li><li>设置参数已整合至后台，无需手动修改HTML。</li><li>基于钻芒二开修改</li><ul>
+ * 基于开源项目<a href="https://github.com/WebStackPage/WebStackPage.github.io" rel="nofollow" target="_blank">WebStack</a>的一个主题，请尊重劳动成果 <ul><li>由<a href="https://bbs.ijkxs.com" rel="nofollow" target="_blank">gogobody</a>二次修改。</li> <li>适配全新暗黑模式，支持cookie保存。</li><li>设置参数已整合至后台，无需手动修改HTML。</li><li>基于钻芒二开修改</li><ul>
  *
  * @package WebStack
  * @author gogobody

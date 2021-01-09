@@ -10,7 +10,7 @@
             'author' => _t('%s 发布的文章')
         ), '', ' - '); ?><?php $this->options->title(); ?><?php if ($this->is('index')): ?><?php endif; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="copyright" content="webstack_gogobody_1.0_bbs.geekscholar.net">
+    <meta name="copyright" content="webstack_gogobody_1.0_bbs.ijkxs.com">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">

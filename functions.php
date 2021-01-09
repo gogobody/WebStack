@@ -22,7 +22,7 @@ function themeConfig($form) {
     </div>
     <span id="j-version" style="display: none;"><?php echo OneVersion() ?></span>
     <div class="j-setting-notice">
-        <iframe width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" src="https://bbs.geekscholar.net/d/35-webstack"></iframe>
+        <iframe width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" src="https://bbs.ijkxs.com/d/35-webstack"></iframe>
     </div>
     <script src="<?php $options->themeUrl('js/one.setting.min.js');?>"></script>
     <?php
@@ -126,7 +126,7 @@ function themeConfig($form) {
     $form->addInput($one_name);
 
     // 顶栏 链接自定义
-    $one_url = new Typecho_Widget_Helper_Form_Element_Text('one_url', NULL, 'https://bbs.geekscholar.net/', _t('顶栏AD链接'), _t('输入你的首页顶栏收录提交右侧文字调整的url，默认 https://bbs.geekscholar.net/'));
+    $one_url = new Typecho_Widget_Helper_Form_Element_Text('one_url', NULL, 'https://bbs.ijkxs.com/', _t('顶栏AD链接'), _t('输入你的首页顶栏收录提交右侧文字调整的url，默认 https://bbs.ijkxs.com/'));
     $one_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_url);
 
@@ -184,11 +184,11 @@ function themeConfig($form) {
     $one_top_main_one_name->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_one_name);
 
-    $one_top_main_one_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_one_icon', NULL, 'fa fa-safari', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块</span>图标'), _t('可自定义蓝色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.geekscholar.net/d/35-webstack">https://bbs.geekscholar.net/d/35-webstack</a>，蓝色默认 fa fa-safari'));
+    $one_top_main_one_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_one_icon', NULL, 'fa fa-safari', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块</span>图标'), _t('可自定义蓝色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.ijkxs.com/d/35-webstack">https://bbs.ijkxs.com/d/35-webstack</a>，蓝色默认 fa fa-safari'));
     $one_top_main_one_icon->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_one_icon);
 
-    $one_top_main_one_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_one_url', NULL, 'https://bbs.geekscholar.net/', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块</span>跳转链接'), _t('输入蓝色模块跳转的链接,'));
+    $one_top_main_one_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_one_url', NULL, 'https://bbs.ijkxs.com/', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块</span>跳转链接'), _t('输入蓝色模块跳转的链接,'));
     $one_top_main_one_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_one_url);
 
@@ -197,11 +197,11 @@ function themeConfig($form) {
     $one_top_main_two_name->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_two_name);
 
-    $one_top_main_two_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_two_icon', NULL, 'fa fa-star', _t('<span style="color: #fb5962; margin-right:0px;">红色模块</span>图标'), _t('可自定义红色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.geekscholar.net/d/35-webstack">https://bbs.geekscholar.net/d/35-webstack</a>，红色默认 fa fa-star'));
+    $one_top_main_two_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_two_icon', NULL, 'fa fa-star', _t('<span style="color: #fb5962; margin-right:0px;">红色模块</span>图标'), _t('可自定义红色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.ijkxs.com/d/35-webstack">https://bbs.ijkxs.com/d/35-webstack</a>，红色默认 fa fa-star'));
     $one_top_main_two_icon->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_two_icon);
 
-    $one_top_main_two_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_two_url', NULL, 'https://bbs.geekscholar.net', _t('<span style="color: #fb5962; margin-right:0px;">红色模块</span>跳转链接'), _t('输入红色模块跳转的链接,'));
+    $one_top_main_two_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_two_url', NULL, 'https://bbs.ijkxs.com', _t('<span style="color: #fb5962; margin-right:0px;">红色模块</span>跳转链接'), _t('输入红色模块跳转的链接,'));
     $one_top_main_two_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_two_url);
 
@@ -210,11 +210,11 @@ function themeConfig($form) {
     $one_top_main_three_name->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_three_name);
 
-    $one_top_main_three_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_three_icon', NULL, 'fa fa-registered', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块</span>图标'), _t('可自定义黄色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.geekscholar.net/d/35-webstack">https://bbs.geekscholar.net/d/35-webstack</a>，黄色默认 fa fa-registered'));
+    $one_top_main_three_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_three_icon', NULL, 'fa fa-registered', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块</span>图标'), _t('可自定义黄色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.ijkxs.com/d/35-webstack">https://bbs.ijkxs.com/d/35-webstack</a>，黄色默认 fa fa-registered'));
     $one_top_main_three_icon->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_three_icon);
 
-    $one_top_main_three_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_three_url', NULL, 'https://bbs.geekscholar.net/d/35-webstack', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块</span>跳转链接'), _t('输入黄色模块跳转的链接,'));
+    $one_top_main_three_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_three_url', NULL, 'https://bbs.ijkxs.com/d/35-webstack', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块</span>跳转链接'), _t('输入黄色模块跳转的链接,'));
     $one_top_main_three_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_three_url);
 
@@ -223,11 +223,11 @@ function themeConfig($form) {
     $one_top_main_four_name->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_four_name);
 
-    $one_top_main_four_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_four_icon', NULL, 'fa fa-diamond', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>图标'), _t('可自定义绿色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.geekscholar.net/d/35-webstack">https://bbs.geekscholar.net/d/35-webstack</a>，绿色默认 fa fa-diamond'));
+    $one_top_main_four_icon = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_four_icon', NULL, 'fa fa-diamond', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>图标'), _t('可自定义绿色模块内文字前的fontawesome图标，使用帮助请查看:<a href="https://bbs.ijkxs.com/d/35-webstack">https://bbs.ijkxs.com/d/35-webstack</a>，绿色默认 fa fa-diamond'));
     $one_top_main_four_icon->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_four_icon);
 
-    $one_top_main_four_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_four_url', NULL, 'https://bbs.geekscholar.net', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>跳转链接'), _t('输入绿色模块跳转的链接,'));
+    $one_top_main_four_url = new Typecho_Widget_Helper_Form_Element_Text('one_top_main_four_url', NULL, 'https://bbs.ijkxs.com', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>跳转链接'), _t('输入绿色模块跳转的链接,'));
     $one_top_main_four_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($one_top_main_four_url);
 
@@ -270,7 +270,7 @@ function themeConfig($form) {
     $form->addInput($fk_one_name);
 
     // 悬浮窗链接
-    $fk_one_url = new Typecho_Widget_Helper_Form_Element_Text('fk_one_url', NULL, 'https://bbs.geekscholar.net/', _t('悬浮窗AD 更多 名称 超链接'), _t('输入右下角悬浮窗内AD的url，默认 https://bbs.geekscholar.net/，此功能需开启悬浮窗才会显示'));
+    $fk_one_url = new Typecho_Widget_Helper_Form_Element_Text('fk_one_url', NULL, 'https://bbs.ijkxs.com/', _t('悬浮窗AD 更多 名称 超链接'), _t('输入右下角悬浮窗内AD的url，默认 https://bbs.ijkxs.com/，此功能需开启悬浮窗才会显示'));
     $fk_one_url->setAttribute('class', 'j-setting-content j-setting-module');
     $form->addInput($fk_one_url);
 
@@ -300,7 +300,7 @@ function themeConfig($form) {
     $explore_categories->setAttribute('class', 'j-setting-content j-setting-other');
     $form->addInput($explore_categories);
 
-    $explore_help_href = new Typecho_Widget_Helper_Form_Element_Text('explore_help_href', NULL, "https://bbs.geekscholar.net/d/35-webstack", _t('探索发现右侧帮助跳转链接'), _t('探索发现右侧帮助图片点击后的跳转链接'));
+    $explore_help_href = new Typecho_Widget_Helper_Form_Element_Text('explore_help_href', NULL, "https://bbs.ijkxs.com/d/35-webstack", _t('探索发现右侧帮助跳转链接'), _t('探索发现右侧帮助图片点击后的跳转链接'));
     $explore_help_href->setAttribute('class', 'j-setting-content j-setting-other');
     $form->addInput($explore_help_href);
 

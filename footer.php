@@ -24,7 +24,7 @@ $this->need('components/floatBar.php')
             &copy; <?php echo date('Y'); ?>&nbsp;Theme:
             <a href="https://github.com/gogobody/WebStack" target="_blank"><strong> WebStack</strong></a>&nbsp; Design BY <a
                     href="http://webstack.cc" target="_blank"><strong>Webstack</strong></a>&nbsp; Modify BY <a
-                    href="https://bbs.geekscholar.net/d/35-webstack" target="_blank"><strong>GOGOBODY</strong></a>
+                    href="https://bbs.ijkxs.com/d/35-webstack" target="_blank"><strong>GOGOBODY</strong></a>
             &nbsp;&nbsp;版权所有:<b><?php $this->options->one_r(); ?></b>
             &nbsp;&nbsp;&nbsp;<a href="http://beian.miit.gov.cn/"
                                  target="_blank"><strong> <?php $this->options->one_icp(); ?> </strong></a>
